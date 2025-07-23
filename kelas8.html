@@ -3,21 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Peta Pembelajaran Interaktif - IPA Kelas 8</title>
+    <title>Silabus Kurikulum Merdeka - IPA Kelas 8</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <!-- Chosen Palette: Calm Study -->
-    <!-- Application Structure Plan: Aplikasi ini dirancang sebagai dasbor interaktif, bukan tabel statis. Struktur ini dipilih untuk mengubah pengalaman melihat silabus dari pasif menjadi eksplorasi aktif. Pengguna dapat dengan mudah beralih antara semester, melihat distribusi topik secara visual melalui bagan, dan menyelami detail setiap bab melalui kartu interaktif yang memunculkan modal. Pendekatan ini meningkatkan keterlibatan pengguna dan pemahaman tentang bagaimana topik-topik saling berhubungan dalam domain sains yang lebih luas (Biologi, Fisika, Kimia), yang lebih intuitif daripada daftar linear. -->
-    <!-- Visualization & Content Choices: 
-        - Pemilihan Semester: Tombol interaktif digunakan untuk memfilter konten. Tujuannya adalah untuk mengorganisir. Interaksinya adalah klik untuk mengganti tampilan bab, memberikan kontrol langsung kepada pengguna.
-        - Distribusi Topik: Bagan Donat (Chart.js/Canvas) digunakan untuk memvisualisasikan proporsi bab per domain ilmu. Tujuannya adalah untuk menginformasikan. Interaksinya adalah hover untuk melihat detail, memberikan gambaran umum kurikulum secara cepat.
-        - Detail Bab: Kartu yang dapat diklik (HTML/CSS/JS) menampilkan modal dengan daftar topik. Tujuannya adalah untuk mengorganisir dan memberikan detail. Interaksinya adalah klik untuk membuka/menutup, memungkinkan pengguna fokus pada satu bab tanpa kehilangan konteks halaman utama.
-        - Justifikasi: Kombinasi ini mengubah data silabus menjadi narasi visual yang mudah dinavigasi dan dipahami, mendukung eksplorasi mandiri.
-    -->
-    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+   
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -55,13 +47,13 @@
     <div id="app" class="container mx-auto p-4 md:p-8 max-w-7xl">
         
         <header class="text-center mb-8">
-            <h1 class="text-3xl md:text-4xl font-bold text-sky-800">Peta Pembelajaran Interaktif</h1>
+            <h1 class="text-3xl md:text-4xl font-bold text-sky-800">Silabus Kurikulum Merdeka SMP</h1>
             <p class="text-lg text-stone-600 mt-2">Ilmu Pengetahuan Alam (IPA) - Kelas VIII Kurikulum Merdeka</p>
         </header>
 
         <main>
             <section id="semester-selector" class="mb-8">
-                 <p class="text-center text-stone-700 mb-4">Selamat datang di peta pembelajaran interaktif. Aplikasi ini dirancang untuk membantu Anda menjelajahi materi IPA kelas 8. Silakan pilih semester untuk melihat bab-bab yang akan dipelajari, klik pada setiap kartu bab untuk melihat rincian topiknya, dan lihat bagan untuk memahami fokus kurikulum tahun ini.</p>
+                 <p class="text-center text-stone-700 mb-4">Selamat datang di Silabus Kurikulum Merdeka SMP. Aplikasi ini dirancang untuk menjelajahi materi IPA kelas 8. Silakan pilih semester untuk melihat bab-bab yang akan dipelajari, klik pada setiap kartu bab untuk melihat rincian topiknya, dan lihat bagan untuk memahami fokus kurikulum tahun ini.</p>
                 <div class="flex justify-center rounded-lg p-1 bg-stone-200 max-w-sm mx-auto">
                     <button id="btn-ganjil" class="w-1/2 py-2 px-4 rounded-md font-semibold transition-colors duration-300">Semester Ganjil</button>
                     <button id="btn-genap" class="w-1/2 py-2 px-4 rounded-md font-semibold transition-colors duration-300">Semester Genap</button>
