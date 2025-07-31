@@ -248,7 +248,7 @@
             font-size: 0.8rem;
         }
 
-        /* Navigation */
+        /* Navigation - Clean & Organized Design */
         .nav {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
@@ -257,20 +257,24 @@
             padding: 20px;
             margin-bottom: 30px;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
         }
 
-        .nav-list {
+        .nav-main {
             display: flex;
-            justify-content: center;
-            gap: 15px;
+            gap: 12px;
             flex-wrap: wrap;
-            list-style: none;
+            flex: 1;
         }
 
         .nav-item {
             background: linear-gradient(45deg, #667eea, #764ba2);
             color: white;
-            padding: 12px 24px;
+            padding: 12px 20px;
             border-radius: 25px;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -280,11 +284,121 @@
             align-items: center;
             justify-content: center;
             white-space: nowrap;
+            font-size: 0.9rem;
         }
 
         .nav-item:hover {
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .nav-actions {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .action-btn {
+            background: linear-gradient(45deg, #a8edea, #fed6e3);
+            color: #4a5568;
+            border: none;
+            padding: 10px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            min-width: 44px;
+            min-height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+        }
+
+        .action-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+        }
+
+        /* Alternative Minimal Navigation */
+        .nav-minimal {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-tabs {
+            display: flex;
+            gap: 2px;
+            background: rgba(102, 126, 234, 0.1);
+            border-radius: 12px;
+            padding: 4px;
+            margin-bottom: 15px;
+        }
+
+        .nav-tab {
+            flex: 1;
+            background: transparent;
+            color: #4a5568;
+            padding: 12px 8px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            min-height: 44px;
+        }
+
+        .nav-tab.active {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+        }
+
+        .nav-tab:hover:not(.active) {
+            background: rgba(102, 126, 234, 0.1);
+        }
+
+        .nav-tab i {
+            font-size: 1.1rem;
+        }
+
+        .nav-actions-minimal {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .action-btn-minimal {
+            background: linear-gradient(45deg, #a8edea, #fed6e3);
+            color: #4a5568;
+            border: none;
+            padding: 8px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            min-width: 40px;
+            min-height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+        }
+
+        .action-btn-minimal:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 3px 10px rgba(102, 126, 234, 0.3);
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
         }
 
         /* Content Sections */
@@ -1117,6 +1231,43 @@
             color: #e2e8f0;
         }
 
+        body.dark-mode .action-btn {
+            background: linear-gradient(45deg, #2d3748, #4a5568);
+            color: #e2e8f0;
+        }
+
+        body.dark-mode .action-btn:hover {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: #e2e8f0;
+        }
+
+        body.dark-mode .nav-minimal {
+            background: rgba(45, 55, 72, 0.95);
+            color: #e2e8f0;
+        }
+
+        body.dark-mode .nav-tabs {
+            background: rgba(102, 126, 234, 0.2);
+        }
+
+        body.dark-mode .nav-tab {
+            color: #e2e8f0;
+        }
+
+        body.dark-mode .nav-tab:hover:not(.active) {
+            background: rgba(102, 126, 234, 0.2);
+        }
+
+        body.dark-mode .action-btn-minimal {
+            background: linear-gradient(45deg, #2d3748, #4a5568);
+            color: #e2e8f0;
+        }
+
+        body.dark-mode .action-btn-minimal:hover {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: #e2e8f0;
+        }
+
         body.dark-mode .header h1 {
             color: #e2e8f0;
             background: linear-gradient(45deg, #667eea, #764ba2);
@@ -1250,16 +1401,50 @@
             .nav {
                 padding: 15px;
                 margin-bottom: 20px;
+                flex-direction: column;
+                gap: 15px;
             }
 
-            .nav-list {
-                flex-direction: column;
-                gap: 10px;
+            .nav-main {
+                width: 100%;
+                justify-content: center;
             }
 
             .nav-item {
-                width: 100%;
+                flex: 1;
+                min-width: 120px;
                 justify-content: center;
+            }
+
+            .nav-actions {
+                justify-content: center;
+                width: 100%;
+            }
+
+            /* Minimal Navigation Mobile */
+            .nav-minimal {
+                padding: 12px;
+            }
+
+            .nav-tabs {
+                flex-direction: column;
+                gap: 4px;
+            }
+
+            .nav-tab {
+                flex-direction: row;
+                justify-content: flex-start;
+                padding: 10px 12px;
+                gap: 8px;
+            }
+
+            .nav-tab span {
+                font-size: 0.9rem;
+            }
+
+            .nav-actions-minimal {
+                flex-wrap: wrap;
+                gap: 8px;
             }
 
             .content-section {
@@ -1466,6 +1651,428 @@
             background: linear-gradient(45deg, #667eea, #764ba2);
             color: #e2e8f0;
         }
+
+        /* Comprehensive Mobile & Responsive Fixes */
+        
+        /* Ensure all interactive elements have proper touch targets */
+        .btn, .nav-item, .quiz-option, .toc-item, .topic-tag, 
+        .sidebar-nav-link, .quick-action-btn {
+            min-height: 44px;
+            min-width: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            touch-action: manipulation;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        /* Fix grid layouts for mobile */
+        .interactive-box {
+            display: block;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        /* Ensure proper spacing and prevent overflow */
+        .container {
+            max-width: 100%;
+            overflow-x: hidden;
+            word-wrap: break-word;
+        }
+
+        /* Fix text overflow issues */
+        .header h1, .section-title, .interactive-box h3 {
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+
+        /* Ensure proper button sizing on mobile */
+        @media (max-width: 768px) {
+            .btn {
+                width: 100%;
+                max-width: none;
+                margin: 8px 0;
+                padding: 15px 20px;
+                font-size: 16px; /* Prevent zoom on iOS */
+            }
+
+            .nav-item {
+                width: 100%;
+                margin: 5px 0;
+            }
+
+            .quiz-option {
+                padding: 15px;
+                margin: 8px 0;
+            }
+
+            .toc-item {
+                width: 100%;
+                margin: 5px 0;
+            }
+
+            .topic-tag {
+                width: 100%;
+                max-width: 250px;
+                margin: 5px auto;
+            }
+
+            /* Fix grid layouts */
+            .cell-structure {
+                grid-template-columns: 1fr !important;
+                gap: 15px;
+            }
+
+            .nav-list {
+                grid-template-columns: 1fr !important;
+            }
+
+            .toc-list {
+                grid-template-columns: 1fr !important;
+            }
+
+            /* Ensure proper text sizing */
+            .header h1 {
+                font-size: clamp(1.5rem, 6vw, 2rem);
+                line-height: 1.2;
+            }
+
+            .section-title {
+                font-size: clamp(1.3rem, 5vw, 1.8rem);
+                line-height: 1.3;
+            }
+
+            .interactive-box h3 {
+                font-size: clamp(1.1rem, 4vw, 1.4rem);
+                line-height: 1.3;
+            }
+
+            /* Fix padding and margins */
+            .content-section {
+                padding: 20px 15px;
+                margin: 15px 0;
+            }
+
+            .interactive-box,
+            .key-points,
+            .quiz-section,
+            .study-case {
+                padding: 20px 15px;
+                margin: 15px 0;
+            }
+
+            /* Fix fixed position buttons */
+            .bookmark-btn,
+            .dark-mode-toggle,
+            .hamburger-menu {
+                position: fixed;
+                z-index: 1000;
+                min-width: 50px;
+                min-height: 50px;
+                padding: 12px;
+            }
+
+            .hamburger-menu {
+                left: 15px;
+                top: 15px;
+                z-index: 1001;
+            }
+
+            .bookmark-btn {
+                right: 15px;
+                top: 80px;
+            }
+
+            .dark-mode-toggle {
+                right: 15px;
+                top: 140px;
+            }
+
+            /* Fix sidebar positioning */
+            .sidebar-menu {
+                width: 280px;
+                left: -280px;
+            }
+
+            /* Fix notification positioning */
+            .notification {
+                position: fixed;
+                top: 10px;
+                right: 10px;
+                left: 10px;
+                max-width: none;
+                z-index: 10000;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px 15px;
+                margin-bottom: 15px;
+            }
+
+            .header h1 {
+                font-size: 1.4rem;
+                margin-bottom: 8px;
+            }
+
+            .header .subtitle {
+                font-size: 0.9rem;
+                margin-bottom: 10px;
+            }
+
+            .header .info {
+                gap: 8px;
+                margin-top: 15px;
+            }
+
+            .info-item {
+                padding: 8px 12px;
+                font-size: 0.8rem;
+            }
+
+            .content-section {
+                padding: 15px 10px;
+                margin: 10px 0;
+            }
+
+            .interactive-box,
+            .key-points,
+            .quiz-section,
+            .study-case {
+                padding: 15px 10px;
+                margin: 10px 0;
+            }
+
+            .btn {
+                padding: 12px 15px;
+                font-size: 14px;
+                margin: 5px 0;
+            }
+
+            .nav-item {
+                padding: 12px 15px;
+                font-size: 14px;
+            }
+
+            .quiz-option {
+                padding: 12px 15px;
+                font-size: 14px;
+            }
+
+            .toc-item {
+                padding: 12px 15px;
+                font-size: 14px;
+            }
+
+            .topic-tag {
+                padding: 10px 12px;
+                font-size: 13px;
+            }
+
+            /* Fix fixed position buttons for small screens */
+            .bookmark-btn,
+            .dark-mode-toggle,
+            .hamburger-menu {
+                padding: 10px;
+                min-width: 44px;
+                min-height: 44px;
+            }
+
+            .hamburger-menu {
+                left: 10px;
+                top: 10px;
+            }
+
+            .bookmark-btn {
+                right: 10px;
+                top: 70px;
+            }
+
+            .dark-mode-toggle {
+                right: 10px;
+                top: 120px;
+            }
+
+            /* Fix sidebar for small screens */
+            .sidebar-menu {
+                width: 260px;
+                left: -260px;
+            }
+
+            /* Fix search container */
+            .search-container {
+                padding: 15px 10px;
+                margin-bottom: 10px;
+            }
+
+            .search-input {
+                padding: 12px;
+                font-size: 16px;
+            }
+
+            /* Fix table of contents */
+            .toc {
+                padding: 15px 10px;
+                margin-bottom: 15px;
+            }
+
+            .toc h3 {
+                font-size: 1.2rem;
+                margin-bottom: 15px;
+            }
+
+            .toc-topics h4 {
+                font-size: 0.9rem;
+                margin-bottom: 10px;
+            }
+
+            /* Fix navigation */
+            .nav {
+                padding: 15px 10px;
+                margin-bottom: 15px;
+            }
+
+            /* Fix footer */
+            .footer {
+                padding: 20px 15px;
+                margin-top: 20px;
+            }
+
+            .footer p {
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Landscape orientation specific fixes */
+        @media (max-height: 500px) and (orientation: landscape) {
+            .header {
+                padding: 10px 15px;
+                margin-bottom: 10px;
+            }
+
+            .header h1 {
+                font-size: 1.3rem;
+                margin-bottom: 5px;
+            }
+
+            .header .subtitle {
+                font-size: 0.8rem;
+                margin-bottom: 5px;
+            }
+
+            .header .info {
+                margin-top: 8px;
+                gap: 6px;
+            }
+
+            .info-item {
+                padding: 6px 10px;
+                font-size: 0.7rem;
+            }
+
+            .content-section {
+                padding: 15px 10px;
+                margin: 8px 0;
+            }
+
+            .interactive-box,
+            .key-points,
+            .quiz-section,
+            .study-case {
+                padding: 15px 10px;
+                margin: 8px 0;
+            }
+
+            .bookmark-btn {
+                top: 60px;
+            }
+
+            .dark-mode-toggle {
+                top: 110px;
+            }
+
+            .progress-container {
+                height: 3px;
+            }
+        }
+
+        /* Ensure proper focus indicators */
+        .btn:focus,
+        .nav-item:focus,
+        .quiz-option:focus,
+        .toc-item:focus,
+        .topic-tag:focus,
+        .sidebar-nav-link:focus,
+        .quick-action-btn:focus,
+        .search-input:focus {
+            outline: 3px solid #667eea;
+            outline-offset: 2px;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.3);
+        }
+
+        /* Fix potential z-index issues */
+        .progress-container {
+            z-index: 1000;
+        }
+
+        .hamburger-menu {
+            z-index: 1001;
+        }
+
+        .sidebar-menu {
+            z-index: 1000;
+        }
+
+        .sidebar-overlay {
+            z-index: 999;
+        }
+
+        .notification {
+            z-index: 10000;
+        }
+
+        /* Ensure proper text contrast */
+        .interactive-box,
+        .key-points,
+        .quiz-section,
+        .study-case {
+            color: inherit;
+        }
+
+        /* Fix potential overflow issues */
+        .cell-diagram,
+        .quiz-question,
+        .case-question {
+            overflow: hidden;
+            word-wrap: break-word;
+        }
+
+        /* Ensure proper form elements */
+        .case-question textarea {
+            width: 100%;
+            box-sizing: border-box;
+            font-family: inherit;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        /* Fix potential animation issues */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1553,26 +2160,31 @@
 
         <!-- Navigation -->
         <div class="nav">
-            <ul class="nav-list">
-                <li class="nav-item" onclick="showSection('materi')" role="button" tabindex="0">
+            <!-- Main Navigation -->
+            <div class="nav-main">
+                <div class="nav-item" onclick="showSection('materi')" role="button" tabindex="0">
                     <i class="fas fa-book"></i> Materi
-                </li>
-                <li class="nav-item" onclick="showSection('rangkuman')" role="button" tabindex="0">
+                </div>
+                <div class="nav-item" onclick="showSection('rangkuman')" role="button" tabindex="0">
                     <i class="fas fa-file-alt"></i> Rangkuman
-                </li>
-                <li class="nav-item" onclick="showSection('quiz')" role="button" tabindex="0">
+                </div>
+                <div class="nav-item" onclick="showSection('quiz')" role="button" tabindex="0">
                     <i class="fas fa-question-circle"></i> Quiz
-                </li>
-                <li class="nav-item" onclick="showSection('study-case')" role="button" tabindex="0">
+                </div>
+                <div class="nav-item" onclick="showSection('study-case')" role="button" tabindex="0">
                     <i class="fas fa-microscope"></i> Study Case
-                </li>
-                <li class="nav-item" onclick="printPage()" role="button" tabindex="0">
-                    <i class="fas fa-print"></i> Print
-                </li>
-                <li class="nav-item" onclick="exportToPDF()" role="button" tabindex="0">
-                    <i class="fas fa-file-pdf"></i> Export PDF
-                </li>
-            </ul>
+                </div>
+            </div>
+            
+            <!-- Action Buttons (Secondary) -->
+            <div class="nav-actions">
+                <button class="action-btn" onclick="printPage()" title="Print halaman" aria-label="Print halaman">
+                    <i class="fas fa-print"></i>
+                </button>
+                <button class="action-btn" onclick="exportToPDF()" title="Export ke PDF" aria-label="Export ke PDF">
+                    <i class="fas fa-file-pdf"></i>
+                </button>
+            </div>
         </div>
 
         <!-- Sidebar Menu -->
@@ -2095,6 +2707,40 @@
             <p class="copyright">© 2024 @AgungFebrian - All Rights Reserved</p>
             <p><i class="fas fa-heart"></i> Dibuat dengan semangat untuk pendidikan Indonesia</p>
         </div>
+
+        <!-- Alternative Minimal Navigation (Hidden by default) -->
+        <div class="nav-minimal hidden" id="navMinimal">
+            <div class="nav-tabs">
+                <div class="nav-tab active" onclick="showSection('materi')" role="button" tabindex="0">
+                    <i class="fas fa-book"></i>
+                    <span>Materi</span>
+                </div>
+                <div class="nav-tab" onclick="showSection('rangkuman')" role="button" tabindex="0">
+                    <i class="fas fa-file-alt"></i>
+                    <span>Rangkuman</span>
+                </div>
+                <div class="nav-tab" onclick="showSection('quiz')" role="button" tabindex="0">
+                    <i class="fas fa-question-circle"></i>
+                    <span>Quiz</span>
+                </div>
+                <div class="nav-tab" onclick="showSection('study-case')" role="button" tabindex="0">
+                    <i class="fas fa-microscope"></i>
+                    <span>Study Case</span>
+                </div>
+            </div>
+            
+            <div class="nav-actions-minimal">
+                <button class="action-btn-minimal" onclick="printPage()" title="Print" aria-label="Print">
+                    <i class="fas fa-print"></i>
+                </button>
+                <button class="action-btn-minimal" onclick="exportToPDF()" title="Export PDF" aria-label="Export PDF">
+                    <i class="fas fa-file-pdf"></i>
+                </button>
+                <button class="action-btn-minimal" onclick="toggleNavigationStyle()" title="Toggle Style" aria-label="Toggle Navigation Style">
+                    <i class="fas fa-palette"></i>
+                </button>
+            </div>
+        </div>
     </div>
 
     <script>
@@ -2102,6 +2748,7 @@
         let currentAnswers = {};
         let quizSubmitted = false;
         let searchTimeout = null;
+        let isSidebarOpen = false;
 
         // Quiz answers
         const quizAnswers = {
@@ -2115,44 +2762,58 @@
         // Initialize application
         document.addEventListener('DOMContentLoaded', function() {
             try {
-                // Show materi section by default
-                showSection('materi');
+                console.log('Initializing web application...');
                 
                 // Initialize all features
                 initSearch();
                 initNavigation();
                 initSidebarNavigation();
-                initAccessibility();
-                initProgressTracking();
-                
-                // Load saved preferences
-                loadUserPreferences();
-                
-                // Add scroll animations
-                initScrollAnimations();
-                
-                // Add keyboard shortcuts
                 initKeyboardShortcuts();
+                initQuiz();
+                initStudyCase();
+                initProgressTracking();
+                initAccessibility();
                 
-                // Add error handling
-                initErrorHandling();
+                        // Load saved preferences
+        loadSavedPreferences();
+        loadNavigationStyle();
+        
+        // Show default section
+        showSection('materi');
                 
-                console.log('Application initialized successfully');
+                // Add scroll event listener for progress tracking
+                window.addEventListener('scroll', updateProgress);
+                
+                // Add error handling for global errors
+                window.addEventListener('error', function(e) {
+                    console.error('Global error:', e.error);
+                    showNotification('Terjadi kesalahan dalam aplikasi', 'error');
+                });
+                
+                // Add unhandled promise rejection handler
+                window.addEventListener('unhandledrejection', function(e) {
+                    console.error('Unhandled promise rejection:', e.reason);
+                    showNotification('Terjadi kesalahan dalam aplikasi', 'error');
+                });
+                
+                console.log('Web application initialized successfully');
+                showNotification('Aplikasi siap digunakan!', 'success');
+                
             } catch (error) {
-                console.error('Error initializing application:', error);
-                showNotification('Terjadi kesalahan saat memuat aplikasi', 'error');
+                console.error('Error during initialization:', error);
+                showNotification('Terjadi kesalahan saat inisialisasi aplikasi', 'error');
             }
         });
 
         // Navigation functions
         function showSection(sectionId) {
             try {
-                // Hide all sections
+                // Hide all sections first
                 document.querySelectorAll('.content-section').forEach(section => {
                     section.classList.add('hidden');
                 });
                 
-                // Show selected section
+                // Show target section
                 const targetSection = document.getElementById(sectionId);
                 if (targetSection) {
                     targetSection.classList.remove('hidden');
@@ -2165,18 +2826,20 @@
                         });
                     }, 100);
                     
-                    // Add animation
+                    // Update active navigation
+                    updateActiveNavigation(sectionId);
+                    updateSidebarActiveState(sectionId);
+                    
+                    // Add fade-in animation
                     targetSection.classList.add('fade-in');
+                    setTimeout(() => {
+                        targetSection.classList.remove('fade-in');
+                    }, 1000);
+                    
+                    console.log(`Section ${sectionId} displayed`);
+                } else {
+                    console.warn(`Section ${sectionId} not found`);
                 }
-                
-                // Update progress bar
-                updateProgress();
-                
-                // Update active navigation
-                updateActiveNavigation(sectionId);
-                
-                // Update sidebar active state
-                updateSidebarActiveState(sectionId);
             } catch (error) {
                 console.error('Error showing section:', error);
                 showNotification('Terjadi kesalahan saat menampilkan section', 'error');
@@ -2187,7 +2850,7 @@
             try {
                 const section = document.getElementById(sectionId);
                 if (section) {
-                    // Show the section first if it's hidden
+                    // Ensure section is visible first
                     if (section.classList.contains('hidden')) {
                         showSection(sectionId);
                     } else {
@@ -2204,40 +2867,51 @@
 
         function updateActiveNavigation(activeSectionId) {
             try {
-                // Remove active class from all nav items
+                // Update nav items
                 document.querySelectorAll('.nav-item').forEach(item => {
                     item.classList.remove('active');
+                    const onclick = item.getAttribute('onclick');
+                    if (onclick && onclick.includes(activeSectionId)) {
+                        item.classList.add('active');
+                    }
                 });
                 
-                // Add active class to current section
-                const activeNavItem = document.querySelector(`[onclick*="${activeSectionId}"]`);
-                if (activeNavItem) {
-                    activeNavItem.classList.add('active');
-                }
+                // Update TOC items
+                document.querySelectorAll('.toc-item').forEach(item => {
+                    item.classList.remove('active');
+                    const onclick = item.getAttribute('onclick');
+                    if (onclick && onclick.includes(activeSectionId)) {
+                        item.classList.add('active');
+                    }
+                });
             } catch (error) {
-                console.error('Error updating navigation:', error);
+                console.error('Error updating active navigation:', error);
             }
         }
 
         // Progress tracking
         function updateProgress() {
             try {
-                const sections = ['materi', 'rangkuman', 'quiz', 'study-case'];
-                const totalSections = sections.length;
-                let completedSections = 0;
+                const progressBar = document.getElementById('progressBar');
+                if (!progressBar) return;
                 
-                sections.forEach(sectionId => {
-                    const section = document.getElementById(sectionId);
-                    if (section && !section.classList.contains('hidden')) {
-                        completedSections++;
+                const sections = document.querySelectorAll('.content-section');
+                const totalSections = sections.length;
+                let visibleSections = 0;
+                
+                sections.forEach(section => {
+                    const rect = section.getBoundingClientRect();
+                    const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+                    if (isVisible && !section.classList.contains('hidden')) {
+                        visibleSections++;
                     }
                 });
                 
-                const progress = (completedSections / totalSections) * 100;
-                const progressBar = document.getElementById('progressBar');
-                if (progressBar) {
-                    progressBar.style.width = `${progress}%`;
-                }
+                const progress = Math.min((visibleSections / totalSections) * 100, 100);
+                progressBar.style.width = `${progress}%`;
+                
+                // Update progress in localStorage
+                localStorage.setItem('learningProgress', progress.toString());
             } catch (error) {
                 console.error('Error updating progress:', error);
             }
@@ -2247,23 +2921,33 @@
         function initSearch() {
             try {
                 const searchInput = document.getElementById('searchInput');
-                if (!searchInput) return;
+                if (!searchInput) {
+                    console.warn('Search input not found');
+                    return;
+                }
                 
-                searchInput.addEventListener('input', function() {
-                    clearTimeout(searchTimeout);
+                searchInput.addEventListener('input', function(e) {
+                    const searchTerm = e.target.value.trim();
                     
+                    // Clear previous timeout
+                    if (searchTimeout) {
+                        clearTimeout(searchTimeout);
+                    }
+                    
+                    // Debounce search
                     searchTimeout = setTimeout(() => {
-                        performSearch(this.value);
+                        performSearch(searchTerm);
                     }, 300);
                 });
                 
-                // Clear search on escape key
+                // Add clear search functionality
                 searchInput.addEventListener('keydown', function(e) {
                     if (e.key === 'Escape') {
-                        this.value = '';
-                        this.dispatchEvent(new Event('input'));
+                        clearSearch();
                     }
                 });
+                
+                console.log('Search functionality initialized');
             } catch (error) {
                 console.error('Error initializing search:', error);
             }
@@ -2271,87 +2955,99 @@
 
         function performSearch(searchTerm) {
             try {
-                const term = searchTerm.toLowerCase().trim();
-                
-                // Remove existing highlights
-                document.querySelectorAll('.highlight').forEach(el => {
-                    const parent = el.parentNode;
-                    if (parent) {
-                        parent.replaceChild(document.createTextNode(el.textContent), el);
-                        parent.normalize();
-                    }
-                });
-                
-                if (term === '') {
+                if (!searchTerm) {
+                    clearSearch();
                     return;
                 }
                 
-                // Search in content sections
-                const contentSections = document.querySelectorAll('.content-section');
-                let totalHighlights = 0;
-                
-                contentSections.forEach(section => {
-                    if (!section.classList.contains('hidden')) {
-                        totalHighlights += highlightText(section, term);
-                    }
+                // Remove previous highlights
+                document.querySelectorAll('.highlight').forEach(el => {
+                    const parent = el.parentNode;
+                    parent.replaceChild(document.createTextNode(el.textContent), el);
+                    parent.normalize();
                 });
                 
-                // Show notification
-                if (totalHighlights === 0 && term.length > 2) {
+                // Search in content sections
+                const contentSections = document.querySelectorAll('.content-section, .interactive-box, .key-points');
+                let foundCount = 0;
+                
+                contentSections.forEach(section => {
+                    const textNodes = getTextNodes(section);
+                    textNodes.forEach(node => {
+                        const text = node.textContent;
+                        const regex = new RegExp(`(${escapeRegex(searchTerm)})`, 'gi');
+                        
+                        if (regex.test(text)) {
+                            const highlightedText = text.replace(regex, '<span class="highlight">$1</span>');
+                            const tempDiv = document.createElement('div');
+                            tempDiv.innerHTML = highlightedText;
+                            
+                            while (tempDiv.firstChild) {
+                                node.parentNode.insertBefore(tempDiv.firstChild, node);
+                            }
+                            node.parentNode.removeChild(node);
+                            foundCount++;
+                        }
+                    });
+                });
+                
+                if (foundCount > 0) {
+                    showNotification(`Ditemukan ${foundCount} hasil pencarian`, 'info');
+                } else {
                     showNotification('Tidak ada hasil yang ditemukan', 'warning');
-                } else if (totalHighlights > 0) {
-                    showNotification(`Ditemukan ${totalHighlights} hasil`, 'success');
                 }
+                
             } catch (error) {
                 console.error('Error performing search:', error);
-                showNotification('Terjadi kesalahan saat mencari', 'error');
+                showNotification('Terjadi kesalahan saat melakukan pencarian', 'error');
             }
         }
 
-        function highlightText(element, searchTerm) {
+        function clearSearch() {
             try {
-                let highlightCount = 0;
-                const walker = document.createTreeWalker(
-                    element,
-                    NodeFilter.SHOW_TEXT,
-                    {
-                        acceptNode: function(node) {
-                            const parent = node.parentElement;
-                            if (parent && (parent.tagName === 'SCRIPT' || parent.tagName === 'STYLE')) {
-                                return NodeFilter.FILTER_REJECT;
-                            }
-                            return NodeFilter.FILTER_ACCEPT;
-                        }
-                    },
-                    false
-                );
-                
-                const textNodes = [];
-                let node;
-                while (node = walker.nextNode()) {
-                    textNodes.push(node);
+                const searchInput = document.getElementById('searchInput');
+                if (searchInput) {
+                    searchInput.value = '';
                 }
                 
-                textNodes.forEach(textNode => {
-                    const text = textNode.textContent;
-                    if (text.toLowerCase().includes(searchTerm)) {
-                        const regex = new RegExp(`(${searchTerm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
-                        const highlightedText = text.replace(regex, '<span class="highlight">$1</span>');
-                        
-                        if (highlightedText !== text) {
-                            const span = document.createElement('span');
-                            span.innerHTML = highlightedText;
-                            textNode.parentNode.replaceChild(span, textNode);
-                            highlightCount += (text.match(regex) || []).length;
-                        }
-                    }
+                // Remove highlights
+                document.querySelectorAll('.highlight').forEach(el => {
+                    const parent = el.parentNode;
+                    parent.replaceChild(document.createTextNode(el.textContent), el);
+                    parent.normalize();
                 });
-                
-                return highlightCount;
             } catch (error) {
-                console.error('Error highlighting text:', error);
-                return 0;
+                console.error('Error clearing search:', error);
             }
+        }
+
+        function getTextNodes(element) {
+            const textNodes = [];
+            const walker = document.createTreeWalker(
+                element,
+                NodeFilter.SHOW_TEXT,
+                {
+                    acceptNode: function(node) {
+                        // Skip script and style tags
+                        const parent = node.parentNode;
+                        if (parent.tagName === 'SCRIPT' || parent.tagName === 'STYLE') {
+                            return NodeFilter.FILTER_REJECT;
+                        }
+                        return NodeFilter.FILTER_ACCEPT;
+                    }
+                }
+            );
+            
+            let node;
+            while (node = walker.nextNode()) {
+                textNodes.push(node);
+            }
+            
+            return textNodes;
+        }
+
+        function escapeRegex(string) {
+            return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
         }
 
         // Quiz functions
@@ -2628,23 +3324,31 @@
         }
 
         // Utility functions
-        function loadUserPreferences() {
+        function loadSavedPreferences() {
             try {
-                // Check if page was bookmarked
-                if (localStorage.getItem('bookmarked') === 'true') {
-                    const bookmarkBtn = document.querySelector('.bookmark-btn');
-                    bookmarkBtn.innerHTML = '<i class="fas fa-bookmark" style="color: #fbbf24;"></i>';
-                    bookmarkBtn.title = 'Hapus bookmark';
-                }
-                
-                // Check if dark mode was enabled
-                if (localStorage.getItem('darkMode') === 'true') {
+                // Load dark mode preference
+                const darkMode = localStorage.getItem('darkMode');
+                if (darkMode === 'true') {
                     document.body.classList.add('dark-mode');
                     const darkModeToggle = document.querySelector('.dark-mode-toggle i');
-                    darkModeToggle.className = 'fas fa-sun';
+                    if (darkModeToggle) {
+                        darkModeToggle.className = 'fas fa-sun';
+                    }
                 }
+                
+                // Load bookmark status
+                const bookmarked = localStorage.getItem('bookmarked');
+                if (bookmarked === 'true') {
+                    const bookmarkBtn = document.querySelector('.bookmark-btn');
+                    if (bookmarkBtn) {
+                        bookmarkBtn.innerHTML = '<i class="fas fa-bookmark" style="color: #fbbf24;"></i>';
+                        bookmarkBtn.title = 'Hapus bookmark';
+                    }
+                }
+                
+                console.log('Saved preferences loaded');
             } catch (error) {
-                console.error('Error loading user preferences:', error);
+                console.error('Error loading saved preferences:', error);
             }
         }
 
@@ -2692,6 +3396,8 @@
                         }
                     });
                 });
+                
+                console.log('Navigation initialized');
             } catch (error) {
                 console.error('Error initializing navigation:', error);
             }
@@ -2715,8 +3421,24 @@
 
         function initProgressTracking() {
             try {
-                // Update progress on scroll
-                window.addEventListener('scroll', updateProgress);
+                // Initialize progress bar
+                updateProgress();
+                
+                // Add intersection observer for better progress tracking
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            updateProgress();
+                        }
+                    });
+                }, { threshold: 0.1 });
+                
+                // Observe content sections
+                document.querySelectorAll('.content-section').forEach(section => {
+                    observer.observe(section);
+                });
+                
+                console.log('Progress tracking initialized');
             } catch (error) {
                 console.error('Error initializing progress tracking:', error);
             }
@@ -2748,7 +3470,7 @@
         function initKeyboardShortcuts() {
             try {
                 document.addEventListener('keydown', function(e) {
-                    // Ctrl/Cmd + K for search
+                    // Ctrl/Cmd + K: Focus search
                     if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
                         e.preventDefault();
                         const searchInput = document.getElementById('searchInput');
@@ -2757,24 +3479,36 @@
                         }
                     }
                     
-                    // Ctrl/Cmd + D for dark mode
+                    // Ctrl/Cmd + D: Toggle dark mode
                     if ((e.ctrlKey || e.metaKey) && e.key === 'd') {
                         e.preventDefault();
                         toggleDarkMode();
                     }
                     
-                    // Ctrl/Cmd + B for bookmark
+                    // Ctrl/Cmd + B: Toggle bookmark
                     if ((e.ctrlKey || e.metaKey) && e.key === 'b') {
                         e.preventDefault();
                         toggleBookmark();
                     }
                     
-                    // Ctrl/Cmd + M for hamburger menu
+                    // Ctrl/Cmd + M: Toggle sidebar
                     if ((e.ctrlKey || e.metaKey) && e.key === 'm') {
                         e.preventDefault();
                         toggleSidebar();
                     }
+                    
+                    // Escape: Clear search or close sidebar
+                    if (e.key === 'Escape') {
+                        const searchInput = document.getElementById('searchInput');
+                        if (searchInput && searchInput.value.trim()) {
+                            clearSearch();
+                        } else if (isSidebarOpen) {
+                            closeSidebar();
+                        }
+                    }
                 });
+                
+                console.log('Keyboard shortcuts initialized');
             } catch (error) {
                 console.error('Error initializing keyboard shortcuts:', error);
             }
@@ -2809,11 +3543,7 @@
         // Sidebar functionality
         function toggleSidebar() {
             try {
-                const sidebar = document.getElementById('sidebarMenu');
-                const overlay = document.getElementById('sidebarOverlay');
-                const hamburger = document.querySelector('.hamburger-menu');
-                
-                if (sidebar.classList.contains('active')) {
+                if (isSidebarOpen) {
                     closeSidebar();
                 } else {
                     openSidebar();
@@ -2829,14 +3559,17 @@
                 const overlay = document.getElementById('sidebarOverlay');
                 const hamburger = document.querySelector('.hamburger-menu');
                 
-                sidebar.classList.add('active');
-                overlay.classList.add('active');
-                hamburger.classList.add('active');
-                
-                // Prevent body scroll
-                document.body.style.overflow = 'hidden';
-                
-                showNotification('Menu dibuka!', 'info');
+                if (sidebar && overlay && hamburger) {
+                    sidebar.classList.add('active');
+                    overlay.classList.add('active');
+                    hamburger.classList.add('active');
+                    isSidebarOpen = true;
+                    
+                    // Prevent body scroll
+                    document.body.style.overflow = 'hidden';
+                    
+                    console.log('Sidebar opened');
+                }
             } catch (error) {
                 console.error('Error opening sidebar:', error);
             }
@@ -2848,12 +3581,17 @@
                 const overlay = document.getElementById('sidebarOverlay');
                 const hamburger = document.querySelector('.hamburger-menu');
                 
-                sidebar.classList.remove('active');
-                overlay.classList.remove('active');
-                hamburger.classList.remove('active');
-                
-                // Restore body scroll
-                document.body.style.overflow = '';
+                if (sidebar && overlay && hamburger) {
+                    sidebar.classList.remove('active');
+                    overlay.classList.remove('active');
+                    hamburger.classList.remove('active');
+                    isSidebarOpen = false;
+                    
+                    // Restore body scroll
+                    document.body.style.overflow = '';
+                    
+                    console.log('Sidebar closed');
+                }
             } catch (error) {
                 console.error('Error closing sidebar:', error);
             }
@@ -2922,16 +3660,13 @@
 
         function updateSidebarActiveState(activeSectionId) {
             try {
-                // Remove active class from all sidebar links
                 document.querySelectorAll('.sidebar-nav-link').forEach(link => {
                     link.classList.remove('active');
+                    const href = link.getAttribute('href');
+                    if (href && href.includes(activeSectionId)) {
+                        link.classList.add('active');
+                    }
                 });
-                
-                // Add active class to current section
-                const activeLink = document.querySelector(`[href="#${activeSectionId}"]`);
-                if (activeLink) {
-                    activeLink.classList.add('active');
-                }
             } catch (error) {
                 console.error('Error updating sidebar active state:', error);
             }
@@ -2939,15 +3674,10 @@
 
         function navigateToSection(sectionId) {
             try {
-                // Close sidebar
                 closeSidebar();
-                
-                // Navigate to section
                 setTimeout(() => {
                     showSection(sectionId);
                 }, 300);
-                
-                showNotification(`Membuka ${sectionId === 'materi' ? 'Materi' : sectionId === 'rangkuman' ? 'Rangkuman' : sectionId === 'quiz' ? 'Quiz' : 'Study Case'}`, 'success');
             } catch (error) {
                 console.error('Error navigating to section:', error);
             }
@@ -3029,19 +3759,58 @@
 
         function focusSearch() {
             try {
-                // Close sidebar
                 closeSidebar();
-                
-                // Focus on search input
                 setTimeout(() => {
                     const searchInput = document.getElementById('searchInput');
                     if (searchInput) {
                         searchInput.focus();
-                        showNotification('Ketik kata kunci untuk mencari materi', 'info');
                     }
                 }, 300);
             } catch (error) {
                 console.error('Error focusing search:', error);
+            }
+        }
+
+        // Navigation Style Toggle Functions
+        function toggleNavigationStyle() {
+            try {
+                const regularNav = document.querySelector('.nav');
+                const minimalNav = document.getElementById('navMinimal');
+                
+                if (regularNav && minimalNav) {
+                    if (regularNav.classList.contains('hidden')) {
+                        // Switch to regular navigation
+                        regularNav.classList.remove('hidden');
+                        minimalNav.classList.add('hidden');
+                        localStorage.setItem('navigationStyle', 'regular');
+                        showNotification('Navigation style: Regular', 'info');
+                    } else {
+                        // Switch to minimal navigation
+                        regularNav.classList.add('hidden');
+                        minimalNav.classList.remove('hidden');
+                        localStorage.setItem('navigationStyle', 'minimal');
+                        showNotification('Navigation style: Minimal', 'info');
+                    }
+                }
+            } catch (error) {
+                console.error('Error toggling navigation style:', error);
+                showNotification('Error toggling navigation style', 'error');
+            }
+        }
+
+        function loadNavigationStyle() {
+            try {
+                const style = localStorage.getItem('navigationStyle');
+                if (style === 'minimal') {
+                    const regularNav = document.querySelector('.nav');
+                    const minimalNav = document.getElementById('navMinimal');
+                    if (regularNav && minimalNav) {
+                        regularNav.classList.add('hidden');
+                        minimalNav.classList.remove('hidden');
+                    }
+                }
+            } catch (error) {
+                console.error('Error loading navigation style:', error);
             }
         }
     </script>
