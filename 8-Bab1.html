@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Materi IPA Kelas 8 - Pengenalan Sel</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0f172a; /* slate-900 */
+            color: #e2e8f0; /* slate-200 */
+        }
+        .content-card {
+            background-color: #1e293b; /* slate-800 */
+            border: 1px solid #334155; /* slate-700 */
+            border-radius: 1rem;
+            padding: 1.5rem;
+            transition: all 0.3s ease-in-out;
+        }
+        .content-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+        .btn-primary {
+            background-color: #2563eb; /* blue-600 */
+            color: white;
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .btn-primary:hover {
+            background-color: #1d4ed8; /* blue-700 */
+        }
+        .section-title {
+            font-size: 2.25rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            text-align: center;
+            background: linear-gradient(90deg, #38bdf8, #a78bfa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out;
+        }
+        /* Stomata Animation */
+        #stomata-opening {
+            animation: openStomata 4s ease-in-out infinite alternate;
+        }
+        @keyframes openStomata {
+            from { transform: scaleY(0.4); }
+            to { transform: scaleY(1); }
+        }
+        /* Organization Level Highlight */
+        .org-level {
+            transition: all 0.3s ease;
+            opacity: 0.7;
+        }
+        .org-level:hover {
+            transform: scale(1.05);
+            background-color: #334155;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header -->
+    <header class="sticky top-0 z-50 bg-slate-900/70 backdrop-blur-lg border-b border-slate-700">
+        <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <i data-lucide="microscope" class="text-sky-400 h-8 w-8 mr-2"></i>
+                    <span class="font-bold text-xl text-white">IPA Kelas 8</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-4">
+                    <a href="#materi" class="text-slate-300 hover:text-sky-400 transition">Materi</a>
+                    <a href="#rangkuman" class="text-slate-300 hover:text-sky-400 transition">Rangkuman</a>
+                    <a href="#quiz" class="text-slate-300 hover:text-sky-400 transition">Quiz</a>
+                    <a href="#tugas" class="text-slate-300 hover:text-sky-400 transition">Tugas</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="menu-btn" class="text-slate-300 hover:text-sky-400">
+                        <i data-lucide="menu" class="h-6 w-6"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden">
+            <a href="#materi" class="block py-2 px-4 text-sm text-slate-300 hover:bg-slate-800">Materi</a>
+            <a href="#rangkuman" class="block py-2 px-4 text-sm text-slate-300 hover:bg-slate-800">Rangkuman</a>
+            <a href="#quiz" class="block py-2 px-4 text-sm text-slate-300 hover:bg-slate-800">Quiz</a>
+            <a href="#tugas" class="block py-2 px-4 text-sm text-slate-300 hover:bg-slate-800">Tugas</a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        
+        <!-- Hero Section -->
+        <section class="text-center my-12 reveal">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-sky-400 to-violet-500 text-transparent bg-clip-text">
+                Bab 1: Pengenalan Sel
+            </h1>
+            <p class="text-lg md:text-xl text-slate-400 max-w-3xl mx-auto">
+                Materi Pembelajaran IPA Kurikulum Merdeka untuk <span class="font-semibold text-sky-300">SMP Kelas 8 Semester 1</span>. Mari selami unit terkecil dari kehidupan!
+            </p>
+        </section>
+
+        <!-- Materi Section -->
+        <section id="materi" class="my-20">
+            <h2 class="section-title reveal">Materi Pembelajaran</h2>
+            <div class="space-y-6">
+
+                <!-- Accordion 1: Sel dan Mikroskop -->
+                <div class="content-card reveal">
+                    <div class="accordion-header cursor-pointer flex justify-between items-center">
+                        <h3 class="text-2xl font-bold text-sky-400">1. Sel dan Penemuan Mikroskop</h3>
+                        <i data-lucide="chevron-down" class="transition-transform duration-300"></i>
+                    </div>
+                    <div class="accordion-content mt-4 text-slate-300">
+                        <p class="mb-4">Sama seperti bangunan yang tersusun dari batu bata, semua makhluk hidup tersusun dari unit-unit kecil yang disebut <b>sel</b>. Sel adalah bagian terkecil yang menyusun tubuh makhluk hidup.</p>
+                        
+                        <div class="p-4 bg-slate-900/50 rounded-lg border border-slate-700 mb-6">
+                            <h4 class="font-bold text-lg text-amber-400 mb-2">Teori Sel</h4>
+                            <ul class="list-disc list-inside space-y-1">
+                                <li>Seluruh makhluk hidup tersusun atas sel.</li>
+                                <li>Sel adalah unit dasar dari struktur dan fungsi makhluk hidup.</li>
+                                <li>Seluruh sel berasal dari sel sebelumnya (omnis cellula e cellula).</li>
+                            </ul>
+                        </div>
+                        
+                        <h4 class="font-bold text-lg text-emerald-400 mb-2">Penemuan Mikroskop</h4>
+                        <p class="mb-4">Penemuan sel tidak lepas dari para ilmuwan hebat dan rasa ingin tahu mereka yang tinggi. Dengan alat sederhana, mereka membuka gerbang menuju dunia mikroskopis.</p>
+                        <div class="grid md:grid-cols-2 gap-6 mb-6">
+                            <div class="p-4 bg-slate-900/50 rounded-lg border border-slate-700">
+                                <h5 class="font-semibold">Robert Hooke (1665)</h5>
+                                <img src="https://i.ibb.co/L8yWd0t/hooke-cork.png" alt="[Gambar pengamatan sayatan gabus oleh Robert Hooke]" class="my-2 rounded-md bg-white p-1">
+                                <p class="text-sm">Mengamati sayatan gabus dan melihat adanya ruang-ruang kosong yang ia sebut "cellula" (kamar kecil). Ia adalah orang pertama yang menggunakan istilah sel.</p>
+                            </div>
+                            <div class="p-4 bg-slate-900/50 rounded-lg border border-slate-700">
+                                <h5 class="font-semibold">Antonie van Leeuwenhoek (1674)</h5>
+                                <img src="https://i.ibb.co/gZkG0jB/leeuwenhoek-microscope.png" alt="[Gambar mikroskop buatan Leeuwenhoek]" class="my-2 rounded-md">
+                                <p class="text-sm">Menjadi orang pertama yang mengamati organisme hidup bersel satu (seperti bakteri) dari air danau, yang ia sebut "animalcula" (hewan kecil).</p>
+                            </div>
+                        </div>
+
+                        <h4 class="font-bold text-lg text-violet-400 mb-2">Menghitung Perbesaran Mikroskop</h4>
+                        <p class="mb-4">Perbesaran total mikroskop adalah hasil perkalian antara perbesaran Lensa Okuler (yang dekat mata) dan Lensa Objektif (yang dekat objek).</p>
+                        <div class="bg-slate-900/50 rounded-lg border border-slate-700 p-4">
+                            <p class="text-center font-mono text-lg mb-2">Perbesaran Total = Perbesaran Okuler × Perbesaran Objektif</p>
+                            <table class="w-full text-center">
+                                <thead class="border-b border-slate-600"><tr><th class="p-2">Okuler</th><th class="p-2">Objektif</th><th class="p-2">Total</th></tr></thead>
+                                <tbody>
+                                    <tr class="border-b border-slate-700"><td>10x</td><td>4x</td><td class="font-bold text-sky-400">40x</td></tr>
+                                    <tr class="border-b border-slate-700"><td>10x</td><td>10x</td><td class="font-bold text-sky-400">100x</td></tr>
+                                    <tr><td>10x</td><td>40x</td><td class="font-bold text-sky-400">400x</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Accordion 2: Sel Hewan dan Tumbuhan -->
+                <div class="content-card reveal">
+                    <div class="accordion-header cursor-pointer flex justify-between items-center">
+                        <h3 class="text-2xl font-bold text-sky-400">2. Struktur Sel: Hewan vs Tumbuhan</h3>
+                        <i data-lucide="chevron-down" class="transition-transform duration-300"></i>
+                    </div>
+                    <div class="accordion-content mt-4 text-slate-300">
+                        <p class="mb-4">Di dalam sel, terdapat bagian-bagian lebih kecil dengan fungsi spesifik yang disebut <b>organel</b>. Mari kita lihat lebih detail struktur sel hewan dan tumbuhan.</p>
+                        
+                        <div class="grid md:grid-cols-2 gap-6 mb-6">
+                            <div class="p-4 bg-slate-900/50 rounded-lg border border-slate-700">
+                                <h5 class="font-bold text-lg text-center mb-2">Sel Hewan</h5>
+                                <img src="https://i.ibb.co/k1hVzYm/animal-cell-detailed-id.png" alt="[Diagram detail sel hewan dengan label organel]" class="bg-white p-2 rounded-lg">
+                            </div>
+                            <div class="p-4 bg-slate-900/50 rounded-lg border border-slate-700">
+                                <h5 class="font-bold text-lg text-center mb-2">Sel Tumbuhan</h5>
+                                <img src="https://i.ibb.co/DLSV2Zg/cell-comparison-id.png" alt="[Diagram perbandingan sel hewan dan sel tumbuhan dengan label organel]" class="bg-white p-2 rounded-lg">
+                            </div>
+                        </div>
+
+                        <h4 class="font-bold text-lg text-amber-400 mb-2">Perbedaan Utama</h4>
+                        <div class="overflow-x-auto">
+                            <table class="w-full min-w-max text-sm text-center">
+                                <thead class="border-b-2 border-slate-600">
+                                    <tr><th class="p-2">Organel</th><th class="p-2">Sel Hewan</th><th class="p-2">Sel Tumbuhan</th><th class="p-2">Fungsi</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="border-b border-slate-700"><td class="p-2 font-semibold">Dinding Sel</td><td class="p-2 text-red-400">Tidak Ada</td><td class="p-2 text-green-400">Ada</td><td class="p-2 text-left">Memberi bentuk kaku & perlindungan</td></tr>
+                                    <tr class="border-b border-slate-700"><td class="p-2 font-semibold">Kloroplas</td><td class="p-2 text-red-400">Tidak Ada</td><td class="p-2 text-green-400">Ada</td><td class="p-2 text-left">Tempat fotosintesis</td></tr>
+                                    <tr class="border-b border-slate-700"><td class="p-2 font-semibold">Vakuola</td><td class="p-2 text-red-400">Kecil/Tidak Ada</td><td class="p-2 text-green-400">Besar & Tunggal</td><td class="p-2 text-left">Menyimpan air & menjaga tekanan</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Accordion 3: Spesialisasi Sel -->
+                <div class="content-card reveal">
+                    <div class="accordion-header cursor-pointer flex justify-between items-center">
+                        <h3 class="text-2xl font-bold text-sky-400">3. Spesialisasi Sel & Organisasi Kehidupan</h3>
+                        <i data-lucide="chevron-down" class="transition-transform duration-300"></i>
+                    </div>
+                    <div class="accordion-content mt-4 text-slate-300">
+                        <p class="mb-4">Pada organisme multiseluler, sel-sel memiliki bentuk dan fungsi khusus. Proses ini disebut <b>spesialisasi sel</b>. Bentuk sel sangat menentukan fungsinya.</p>
+                        
+                        <h4 class="font-bold text-lg text-rose-400 mb-2">Galeri Sel Terspesialisasi</h4>
+                        <div class="p-4 bg-slate-900/50 rounded-lg border border-slate-700 mb-6">
+                            <img src="https://i.ibb.co/d2W2tP4/specialized-cells-id.png" alt="[Galeri berbagai jenis sel terspesialisasi seperti sel saraf, otot, darah, epitel, dan tulang]" class="bg-white p-2 rounded-lg w-full">
+                            <p class="text-center text-xs mt-2">Berbagai jenis sel di tubuh kita memiliki bentuk yang unik sesuai tugasnya masing-masing.</p>
+                        </div>
+                        
+                        <div class="grid md:grid-cols-2 gap-4 mb-6">
+                             <div class="p-3 bg-slate-900/50 rounded-lg text-center">
+                                <img src="https://i.ibb.co/qY7wZ6k/neuron.png" alt="[Diagram sel saraf]" class="h-20 mx-auto mb-2">
+                                <h5 class="font-semibold">Sel Saraf</h5>
+                                <p class="text-sm">Bentuknya panjang untuk mengirimkan sinyal listrik.</p>
+                            </div>
+                            <div class="p-3 bg-slate-900/50 rounded-lg text-center">
+                                <div class="w-full h-20 mx-auto mb-2 flex items-center justify-center">
+                                    <svg viewBox="0 0 200 100" class="h-full">
+                                        <g transform="translate(100, 50)">
+                                            <path d="M -70 20 C -60 20, -50 10, -40 10 C -30 10, -20 20, -10 20 L 10 20 C 20 20, 30 10, 40 10 C 50 10, 60 20, 70 20 L 70 -20 C 60 -20, 50 -10, 40 -10 C 30 -10, 20 -20, 10 -20 L -10 -20 C -20 -20, -30 -10, -40 -10 C -50 -10, -60 -20, -70 -20 Z" fill="#4ade80"/>
+                                            <ellipse cx="0" cy="0" rx="30" ry="8" fill="#22c55e" id="stomata-opening" style="transform-origin: center;"/>
+                                        </g>
+                                    </svg>
+                                </div>
+                                <h5 class="font-semibold">Stomata & Sel Penjaga</h5>
+                                <p class="text-sm">Sel penjaga bisa membuka & menutup celah (stomata) untuk pertukaran gas.</p>
+                            </div>
+                        </div>
+
+                        <h4 class="font-bold text-lg text-violet-400 mb-2">Tingkat Organisasi Kehidupan</h4>
+                        <p class="mb-4">Sel-sel yang terspesialisasi ini bekerja sama membentuk tingkatan yang lebih kompleks. Klik pada setiap tingkatan untuk melihat contohnya!</p>
+                        <div class="flex justify-center">
+                             <img id="org-chart" src="https://i.ibb.co/3WqV2x0/organization-level-id.png" alt="[Diagram tingkat organisasi kehidupan dari sel, jaringan, organ, sistem organ, hingga organisme]" class="bg-white p-2 rounded-lg max-w-full md:max-w-3xl">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Rangkuman Section -->
+        <section id="rangkuman" class="my-20">
+            <h2 class="section-title reveal">Rangkuman Materi</h2>
+            <div class="content-card reveal">
+                <ul class="space-y-4 text-slate-300">
+                    <li class="flex items-start">
+                        <i data-lucide="check-circle-2" class="h-6 w-6 mr-3 mt-1 text-sky-400 flex-shrink-0"></i>
+                        <div><b>Sel</b> adalah unit struktural dan fungsional terkecil dari semua makhluk hidup. Penemuannya dimungkinkan oleh <b>mikroskop</b>.</div>
+                    </li>
+                    <li class="flex items-start">
+                        <i data-lucide="check-circle-2" class="h-6 w-6 mr-3 mt-1 text-amber-400 flex-shrink-0"></i>
+                        <div>Sel memiliki bagian-bagian kecil (<b>organel</b>) dengan fungsi tertentu, seperti <b>nukleus</b> (pusat kendali) dan <b>mitokondria</b> (penghasil energi).</div>
+                    </li>
+                    <li class="flex items-start">
+                        <i data-lucide="check-circle-2" class="h-6 w-6 mr-3 mt-1 text-emerald-400 flex-shrink-0"></i>
+                        <div><b>Sel tumbuhan</b> memiliki tiga bagian yang tidak dimiliki sel hewan: <b>dinding sel</b> (memberi kekakuan), <b>kloroplas</b> (untuk fotosintesis), dan <b>vakuola</b> yang besar.</div>
+                    </li>
+                    <li class="flex items-start">
+                        <i data-lucide="check-circle-2" class="h-6 w-6 mr-3 mt-1 text-rose-400 flex-shrink-0"></i>
+                        <div>Pada organisme multiseluler, sel mengalami <b>spesialisasi</b> (pengkhususan fungsi) yang membuat bentuknya sesuai dengan tugasnya (cth: sel saraf yang panjang).</div>
+                    </li>
+                    <li class="flex items-start">
+                        <i data-lucide="check-circle-2" class="h-6 w-6 mr-3 mt-1 text-violet-400 flex-shrink-0"></i>
+                        <div>Organisasi kehidupan tersusun secara hierarkis: <b>Sel → Jaringan → Organ → Sistem Organ → Organisme</b>.</div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Quiz Section -->
+        <section id="quiz" class="my-20">
+            <h2 class="section-title reveal">Quiz Singkat</h2>
+            <div class="content-card reveal">
+                <form id="quiz-form">
+                    <div class="space-y-8">
+                        <div class="quiz-question">
+                            <p class="font-semibold mb-2">1. Siapakah ilmuwan yang pertama kali melihat "ruang-ruang kecil" pada gabus dan menamainya sel?</p>
+                            <div class="space-y-2"><label class="flex items-center p-3 rounded-lg border border-slate-600 hover:bg-slate-700 cursor-pointer transition"><input type="radio" name="q1" value="a" class="mr-3"> Antonie van Leeuwenhoek</label><label class="flex items-center p-3 rounded-lg border border-slate-600 hover:bg-slate-700 cursor-pointer transition"><input type="radio" name="q1" value="b" class="mr-3"> Robert Hooke</label><label class="flex items-center p-3 rounded-lg border border-slate-600 hover:bg-slate-700 cursor-pointer transition"><input type="radio" name="q1" value="c" class="mr-3"> Dr. Joe Hin Tjio</label><label class="flex items-center p-3 rounded-lg border border-slate-600 hover:bg-slate-700 cursor-pointer transition"><input type="radio" name="q1" value="d" class="mr-3"> Charles Darwin</label></div>
+                        </div>
+                        <div class="quiz-question">
+                            <p class="font-semibold mb-2">2. Organel yang berfungsi sebagai "pembangkit energi" sel adalah...</p>
+                            <div class="space-y-2"><label class="flex items-center p-3 rounded-lg border border-slate-600 hover:bg-slate-700 cursor-pointer transition"><input type="radio" name="q2" value="a" class="mr-3"> Nukleus</label><label class="flex items-center p-3 rounded-lg border border-slate-600 hover:bg-slate-700 cursor-pointer transition"><input type="radio" name="q2" value="b" class="mr-3"> Kloroplas</label><label class="flex items-center p-3 rounded-lg border border-slate-600 hover:bg-slate-700 cursor-pointer transition"><input type="radio" name="q2" value="c" class="mr-3"> Mitokondria</label><label class="flex items-center p-3 rounded-lg border border-slate-600 hover:bg-slate-700 cursor-pointer transition"><input type="radio" name="q2" value="d" class="mr-3"> Membran Sel</label></div>
+                        </div>
+                        <div class="quiz-question">
+                            <p class="font-semibold mb-2">3. Manakah dari berikut ini yang HANYA ditemukan pada sel tumbuhan?</p>
+                            <div class="space-y-2"><label class="flex items-center p-3 rounded-lg border border-slate-600 hover:bg-slate-700 cursor-pointer transition"><input type="radio" name="q3" value="a" class="mr-3"> Mitokondria</label><label class="flex items-center p-3 rounded-lg border border-slate-600 hover:bg-slate-700 cursor-pointer transition"><input type="radio" name="q3" value="b" class="mr-3"> Nukleus</label><label class="flex items-center p-3 rounded-lg border border-slate-600 hover:bg-slate-700 cursor-pointer transition"><input type="radio" name="q3" value="c" class="mr-3"> Dinding Sel</label><label class="flex items-center p-3 rounded-lg border border-slate-600 hover:bg-slate-700 cursor-pointer transition"><input type="radio" name="q3" value="d" class="mr-3"> Sitoplasma</label></div>
+                        </div>
+                        <div class="quiz-question">
+                            <p class="font-semibold mb-2">4. Kumpulan sel yang memiliki bentuk dan fungsi yang sama akan membentuk...</p>
+                            <div class="space-y-2"><label class="flex items-center p-3 rounded-lg border border-slate-600 hover:bg-slate-700 cursor-pointer transition"><input type="radio" name="q4" value="a" class="mr-3"> Organ</label><label class="flex items-center p-3 rounded-lg border border-slate-600 hover:bg-slate-700 cursor-pointer transition"><input type="radio" name="q4" value="b" class="mr-3"> Jaringan</label><label class="flex items-center p-3 rounded-lg border border-slate-600 hover:bg-slate-700 cursor-pointer transition"><input type="radio" name="q4" value="c" class="mr-3"> Sistem Organ</label><label class="flex items-center p-3 rounded-lg border border-slate-600 hover:bg-slate-700 cursor-pointer transition"><input type="radio" name="q4" value="d" class="mr-3"> Organisme</label></div>
+                        </div>
+                        <div class="quiz-question">
+                            <p class="font-semibold mb-2">5. Sel darah merah tidak memiliki nukleus saat dewasa. Ini adalah contoh spesialisasi sel yang bertujuan untuk...</p>
+                            <div class="space-y-2"><label class="flex items-center p-3 rounded-lg border border-slate-600 hover:bg-slate-700 cursor-pointer transition"><input type="radio" name="q5" value="a" class="mr-3"> Membuat sel lebih fleksibel</label><label class="flex items-center p-3 rounded-lg border border-slate-600 hover:bg-slate-700 cursor-pointer transition"><input type="radio" name="q5" value="b" class="mr-3"> Menghemat energi sel</label><label class="flex items-center p-3 rounded-lg border border-slate-600 hover:bg-slate-700 cursor-pointer transition"><input type="radio" name="q5" value="c" class="mr-3"> Memberi ruang lebih untuk mengikat oksigen</label><label class="flex items-center p-3 rounded-lg border border-slate-600 hover:bg-slate-700 cursor-pointer transition"><input type="radio" name="q5" value="d" class="mr-3"> Mempercepat gerakan sel dalam darah</label></div>
+                        </div>
+                    </div>
+                    <div class="mt-8 text-center"><button type="submit" class="btn-primary">Kumpulkan Jawaban</button></div>
+                </form>
+                <div id="quiz-results" class="mt-8 hidden"></div>
+            </div>
+        </section>
+
+        <!-- Tugas Section -->
+        <section id="tugas" class="my-20">
+            <h2 class="section-title reveal">Latihan Studi Kasus</h2>
+            <div class="content-card reveal">
+                <p class="text-center mb-8 text-slate-400">Jawablah pertanyaan-pertanyaan berikut dengan pemahamanmu sendiri untuk melatih kemampuan berpikir kritis!</p>
+                <div class="space-y-6 text-slate-300">
+                    <div class="p-4 bg-slate-900/50 rounded-lg border border-slate-700"><b>1.</b> Bayangkan kamu bisa mengecil dan masuk ke dalam sehelai daun. Organel apa yang akan paling banyak kamu temui dan mengapa? Jelaskan fungsi utama organel tersebut bagi tumbuhan.</div>
+                    <div class="p-4 bg-slate-900/50 rounded-lg border border-slate-700"><b>2.</b> Mengapa tumbuhan memiliki bentuk yang cenderung kaku dan tidak bisa bergerak bebas seperti hewan? Jelaskan jawabannya dengan membandingkan struktur terluar dari sel hewan dan sel tumbuhan.</div>
+                    <div class="p-4 bg-slate-900/50 rounded-lg border border-slate-700"><b>3.</b> Andai kamu seorang dokter, seorang pasien datang dengan keluhan sangat lemas dan mudah lelah. Setelah diperiksa, ternyata ada kelainan pada selnya. Organel sel apa yang kemungkinan besar mengalami kerusakan? Jelaskan alasanmu.</div>
+                    <div class="p-4 bg-slate-900/50 rounded-lg border border-slate-700"><b>4.</b> Sel saraf memiliki bentuk yang sangat panjang dan bercabang-cabang, berbeda dengan sel kulit yang cenderung pipih dan rapat. Hubungkan perbedaan bentuk ini dengan fungsi masing-masing sel tersebut!</div>
+                    <div class="p-4 bg-slate-900/50 rounded-lg border border-slate-700"><b>5.</b> Jika kita mengibaratkan sebuah sel sebagai "kota", maka nukleus adalah "balai kota" atau pusat pemerintahan. Buatlah analogi (perumpamaan) untuk organel mitokondria dan membran sel dalam "kota" tersebut!</div>
+                    <div class="p-4 bg-slate-900/50 rounded-lg border border-slate-700"><b>6.</b> Urutkan struktur berikut dari yang paling sederhana hingga paling kompleks: Jantung, Manusia, Sel Otot, Sistem Peredaran Darah, Jaringan Otot. Berikan penjelasan singkat untuk setiap tingkatannya.</div>
+                    <div class="p-4 bg-slate-900/50 rounded-lg border border-slate-700"><b>7.</b> Beberapa organisme seperti bakteri dan ameba hanya terdiri dari satu sel (uniseluler). Menurutmu, apa keuntungan dan kerugian menjadi organisme uniseluler dibandingkan multiseluler seperti manusia?</div>
+                    <div class="p-4 bg-slate-900/50 rounded-lg border border-slate-700"><b>8.</b> Saat mengamati sel bawang di bawah mikroskop, kamu menambahkan larutan garam pekat. Apa yang akan terjadi pada sel bawang tersebut? Hubungkan dengan fungsi vakuola dan membran sel.</div>
+                    <div class="p-4 bg-slate-900/50 rounded-lg border border-slate-700"><b>9.</b> Sel punca (stem cell) disebut-sebut sebagai sel ajaib yang bisa menyembuhkan banyak penyakit. Sel punca adalah sel yang belum terspesialisasi. Apa maksudnya, dan bagaimana sifat ini membuatnya berguna dalam pengobatan?</div>
+                    <div class="p-4 bg-slate-900/50 rounded-lg border border-slate-700"><b>10.</b> Bayangkan kamu adalah Robert Hooke. Tuliskan sebuah paragraf singkat seolah-olah kamu baru saja melihat sel untuk pertama kalinya melalui mikroskop sederhanamu. Apa yang kamu lihat dan bagaimana perasaanmu?</div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-700 mt-12 py-8">
+        <div class="container mx-auto px-4 text-center text-slate-400">
+            <p>&copy; 2024 Dibuat dengan ❤️ untuk Pembelajaran. Copyright @AgungFebrian</p>
+            <p class="text-sm mt-1">Materi IPA SMP Kelas 8 - Kurikulum Merdeka</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initialize Lucide Icons
+            lucide.createIcons();
+
+            // Mobile Menu Toggle
+            const menuBtn = document.getElementById('menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            menuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Accordion Logic
+            const accordionHeaders = document.querySelectorAll('.accordion-header');
+            accordionHeaders.forEach(header => {
+                header.addEventListener('click', () => {
+                    const accordionContent = header.nextElementSibling;
+                    const accordionIcon = header.querySelector('svg');
+
+                    const isCurrentOpen = accordionContent.style.maxHeight;
+
+                    accordionHeaders.forEach(otherHeader => {
+                        if (otherHeader !== header) {
+                            const otherContent = otherHeader.nextElementSibling;
+                            const otherIcon = otherHeader.querySelector('svg');
+                            if (otherContent) otherContent.style.maxHeight = null;
+                            if (otherIcon) otherIcon.style.transform = 'rotate(0deg)';
+                        }
+                    });
+
+                    if (isCurrentOpen) {
+                        accordionContent.style.maxHeight = null;
+                        if (accordionIcon) accordionIcon.style.transform = 'rotate(0deg)';
+                    } else {
+                        accordionContent.style.maxHeight = accordionContent.scrollHeight + "px";
+                        if (accordionIcon) accordionIcon.style.transform = 'rotate(180deg)';
+                    }
+                });
+            });
+
+            // On-scroll Reveal Animation
+            const revealElements = document.querySelectorAll('.reveal');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+            revealElements.forEach(el => observer.observe(el));
+
+            // Quiz Logic
+            const quizForm = document.getElementById('quiz-form');
+            const quizResults = document.getElementById('quiz-results');
+            const answers = { q1: 'b', q2: 'c', q3: 'c', q4: 'b', q5: 'c' };
+            const explanations = {
+                q1: '<b>Robert Hooke</b> adalah orang pertama yang mengamati sel gabus dan memberikan nama "sel".',
+                q2: '<b>Mitokondria</b> adalah organel yang melakukan respirasi seluler untuk menghasilkan ATP, sumber energi utama sel.',
+                q3: '<b>Dinding Sel</b>, Kloroplas, dan Vakuola sentral yang besar adalah ciri khas sel tumbuhan yang tidak ada di sel hewan.',
+                q4: '<b>Jaringan</b> adalah tingkat organisasi di atas sel, yang merupakan kumpulan sel sejenis dengan fungsi yang sama.',
+                q5: 'Dengan menghilangkan nukleus, sel darah merah memiliki lebih banyak volume internal untuk diisi dengan hemoglobin, protein yang <b>mengikat oksigen</b>.'
+            };
+
+            quizForm.addEventListener('submit', e => {
+                e.preventDefault();
+                let score = 0;
+                let resultsHTML = '';
+                const formData = new FormData(quizForm);
+
+                for (const [question, correctAnswer] of Object.entries(answers)) {
+                    const userAnswer = formData.get(question);
+                    if (userAnswer === correctAnswer) {
+                        score++;
+                    }
+                }
+
+                resultsHTML += `<h3 class="text-2xl font-bold text-center mb-4">Hasil Quiz Kamu</h3>`;
+                resultsHTML += `<p class="text-center text-xl mb-6">Skor Kamu: <span class="font-bold text-sky-400">${score}</span> dari 5</p>`;
+                resultsHTML += '<div class="space-y-4 text-left">';
+
+                for (let i = 1; i <= 5; i++) {
+                    const questionKey = `q${i}`;
+                    const userAnswer = formData.get(questionKey);
+                    const correctAnswer = answers[questionKey];
+                    const questionText = document.querySelector(`input[name="${questionKey}"]`).closest('.quiz-question').querySelector('p').textContent;
+
+                    resultsHTML += `<div class="p-4 rounded-lg ${userAnswer === correctAnswer ? 'bg-emerald-900/50 border border-emerald-700' : 'bg-rose-900/50 border border-rose-700'}">`;
+                    resultsHTML += `<p class="font-semibold">${questionText}</p>`;
+                    resultsHTML += `<p>Jawabanmu: ${userAnswer ? `"${document.querySelector(`input[name='${questionKey}'][value='${userAnswer}']`).parentElement.textContent.trim()}"` : 'Tidak dijawab'}</p>`;
+                    if (userAnswer !== correctAnswer) {
+                        resultsHTML += `<p>Jawaban Benar: "${document.querySelector(`input[name='${questionKey}'][value='${correctAnswer}']`).parentElement.textContent.trim()}"</p>`;
+                    }
+                    resultsHTML += `<p class="mt-2 pt-2 border-t border-slate-600 text-slate-300"><b>Penjelasan:</b> ${explanations[questionKey]}</p>`;
+                    resultsHTML += `</div>`;
+                }
+
+                resultsHTML += '</div>';
+                quizResults.innerHTML = resultsHTML;
+                quizResults.classList.remove('hidden');
+                quizResults.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html>
