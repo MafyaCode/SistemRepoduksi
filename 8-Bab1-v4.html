@@ -1,0 +1,1116 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BAB 1: Pengenalan Sel - IPA Kelas 8 SMP</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header */
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            animation: slideDown 1s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .header h1 {
+            color: #4a5568;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header .subtitle {
+            color: #718096;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+
+        .header .info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .info-item {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* Navigation */
+        .nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-list {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            list-style: none;
+        }
+
+        .nav-item {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        /* Content Sections */
+        .content-section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                transform: translateY(30px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .section-title {
+            color: #4a5568;
+            font-size: 2rem;
+            margin-bottom: 25px;
+            text-align: center;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+
+        /* Cell Diagram */
+        .cell-diagram {
+            text-align: center;
+            margin: 40px 0;
+            padding: 30px;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            border-radius: 20px;
+            color: white;
+        }
+
+        .cell-diagram h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .cell-structure {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .cell-part {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .cell-part h4 {
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        /* Interactive Elements */
+        .interactive-box {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 20px 0;
+            border-left: 5px solid #667eea;
+        }
+
+        .key-points {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 20px 0;
+        }
+
+        .key-points h4 {
+            color: #d69e2e;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .key-points ul {
+            list-style: none;
+        }
+
+        .key-points li {
+            margin: 10px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .key-points li::before {
+            content: '🔑';
+            position: absolute;
+            left: 0;
+        }
+
+        /* Quiz Section */
+        .quiz-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin: 30px 0;
+        }
+
+        .quiz-question {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 20px 0;
+            backdrop-filter: blur(10px);
+        }
+
+        .quiz-options {
+            display: grid;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .quiz-option {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 15px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .quiz-option:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateX(5px);
+        }
+
+        .quiz-option.selected {
+            background: rgba(255, 255, 255, 0.4);
+            border-color: #fbbf24;
+        }
+
+        .quiz-option.correct {
+            background: rgba(34, 197, 94, 0.3);
+            border-color: #22c55e;
+        }
+
+        .quiz-option.incorrect {
+            background: rgba(239, 68, 68, 0.3);
+            border-color: #ef4444;
+        }
+
+        /* Study Case */
+        .study-case {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin: 30px 0;
+        }
+
+        .case-question {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 20px 0;
+            backdrop-filter: blur(10px);
+        }
+
+        .case-question textarea {
+            width: 100%;
+            min-height: 100px;
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            margin-top: 15px;
+            font-family: inherit;
+            resize: vertical;
+        }
+
+        /* Buttons */
+        .btn {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            margin: 10px 5px;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(45deg, #f093fb, #f5576c);
+        }
+
+        /* Footer */
+        .footer {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer p {
+            color: #718096;
+            margin-bottom: 10px;
+        }
+
+        .footer .copyright {
+            color: #667eea;
+            font-weight: 600;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .header .info {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .nav-list {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .content-section {
+                padding: 20px;
+            }
+
+            .cell-structure {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animations */
+        .fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .bounce-in {
+            animation: bounceIn 0.8s ease-out;
+        }
+
+        @keyframes bounceIn {
+            0% {
+                transform: scale(0.3);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            70% {
+                transform: scale(0.9);
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        /* Progress Bar */
+        .progress-container {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            padding: 3px;
+            margin: 20px 0;
+        }
+
+        .progress-bar {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            height: 20px;
+            border-radius: 8px;
+            transition: width 0.3s ease;
+            width: 0%;
+        }
+
+        /* Hidden sections */
+        .hidden {
+            display: none;
+        }
+
+        /* Success message */
+        .success-message {
+            background: linear-gradient(45deg, #22c55e, #16a34a);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            margin: 20px 0;
+            animation: bounceIn 0.8s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>BAB 1: Pengenalan Sel</h1>
+            <p class="subtitle">Materi Pembelajaran IPA Kelas 8 SMP</p>
+            <div class="info">
+                <div class="info-item">
+                    <i class="fas fa-graduation-cap"></i> SMP
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-users"></i> Kelas 8
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-calendar"></i> Semester 1
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-book"></i> IPA
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="nav">
+            <ul class="nav-list">
+                <li class="nav-item" onclick="showSection('materi')">📚 Materi</li>
+                <li class="nav-item" onclick="showSection('rangkuman')">📝 Rangkuman</li>
+                <li class="nav-item" onclick="showSection('quiz')">❓ Quiz</li>
+                <li class="nav-item" onclick="showSection('study-case')">🔬 Study Case</li>
+            </ul>
+        </div>
+
+        <!-- Progress Bar -->
+        <div class="progress-container">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+
+        <!-- Materi Section -->
+        <div id="materi" class="content-section">
+            <h2 class="section-title">📚 Materi Pembelajaran</h2>
+            
+            <div class="interactive-box">
+                <h3><i class="fas fa-lightbulb"></i> Apa itu Sel?</h3>
+                <p>Sel adalah unit terkecil dari makhluk hidup yang memiliki struktur dan fungsi tertentu. Sel merupakan dasar kehidupan yang membentuk semua organisme di bumi.</p>
+                
+                <div style="background: rgba(102, 126, 234, 0.1); padding: 20px; border-radius: 10px; margin-top: 15px;">
+                    <h4><i class="fas fa-history"></i> Sejarah Penemuan Sel</h4>
+                    <p><strong>Robert Hooke (1665):</strong> Pertama kali mengamati sel pada gabus menggunakan mikroskop sederhana. Ia melihat ruang-ruang kecil yang disebut "cellulae" (sel).</p>
+                    <p><strong>Antonie van Leeuwenhoek (1674):</strong> Mengamati sel hidup pertama kali menggunakan mikroskop yang lebih canggih.</p>
+                </div>
+            </div>
+
+            <div class="interactive-box">
+                <h3><i class="fas fa-book"></i> Teori Sel</h3>
+                <p>Teori sel dikembangkan oleh Matthias Schleiden dan Theodor Schwann pada tahun 1839:</p>
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    <li>Semua makhluk hidup tersusun dari sel</li>
+                    <li>Sel adalah unit struktural dan fungsional terkecil</li>
+                    <li>Sel berasal dari sel yang sudah ada sebelumnya</li>
+                </ul>
+            </div>
+
+            <div class="cell-diagram">
+                <h3><i class="fas fa-microscope"></i> Struktur Sel</h3>
+                <p>Mari kita pelajari komponen-komponen penting dalam sel:</p>
+                
+                <div class="cell-structure">
+                    <div class="cell-part">
+                        <h4><i class="fas fa-circle"></i> Membran Sel</h4>
+                        <p>Lapisan tipis yang membungkus sel, berfungsi sebagai pelindung dan pengatur keluar masuknya zat.</p>
+                    </div>
+                    <div class="cell-part">
+                        <h4><i class="fas fa-dot-circle"></i> Sitoplasma</h4>
+                        <p>Cairan kental di dalam sel yang berisi berbagai organel dan zat-zat penting.</p>
+                    </div>
+                    <div class="cell-part">
+                        <h4><i class="fas fa-nucleus"></i> Nukleus</h4>
+                        <p>Inti sel yang berisi materi genetik (DNA) dan mengendalikan aktivitas sel.</p>
+                    </div>
+                    <div class="cell-part">
+                        <h4><i class="fas fa-battery-full"></i> Mitokondria</h4>
+                        <p>Organel penghasil energi yang disebut "powerhouse of the cell".</p>
+                    </div>
+                    <div class="cell-part">
+                        <h4><i class="fas fa-network-wired"></i> Retikulum Endoplasma</h4>
+                        <p>Jaringan membran dalam sel yang berfungsi dalam sintesis protein dan transportasi zat.</p>
+                    </div>
+                    <div class="cell-part">
+                        <h4><i class="fas fa-box"></i> Badan Golgi</h4>
+                        <p>Organel yang berfungsi dalam pengemasan dan sekresi protein.</p>
+                    </div>
+                    <div class="cell-part">
+                        <h4><i class="fas fa-recycle"></i> Lisosom</h4>
+                        <p>Organel yang berisi enzim pencernaan untuk memecah zat-zat dalam sel.</p>
+                    </div>
+                    <div class="cell-part">
+                        <h4><i class="fas fa-leaf"></i> Kloroplas</h4>
+                        <p>Organel fotosintesis yang hanya ada pada sel tumbuhan.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="key-points">
+                <h4><i class="fas fa-star"></i> Poin-Poin Penting:</h4>
+                <ul>
+                    <li>Sel adalah unit terkecil makhluk hidup</li>
+                    <li>Setiap sel memiliki membran, sitoplasma, dan nukleus</li>
+                    <li>Sel dapat melakukan metabolisme dan reproduksi</li>
+                    <li>Ukuran sel sangat kecil (mikroskopis)</li>
+                    <li>Sel dapat dilihat dengan mikroskop</li>
+                </ul>
+            </div>
+
+            <div class="interactive-box">
+                <h3><i class="fas fa-flask"></i> Jenis-Jenis Sel</h3>
+                <p><strong>Sel Prokariotik:</strong> Sel sederhana tanpa membran inti (contoh: bakteri)</p>
+                <p><strong>Sel Eukariotik:</strong> Sel kompleks dengan membran inti (contoh: sel hewan dan tumbuhan)</p>
+            </div>
+
+            <div class="interactive-box">
+                <h3><i class="fas fa-seedling"></i> Perbedaan Sel Hewan dan Tumbuhan</h3>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px;">
+                    <div style="background: rgba(102, 126, 234, 0.1); padding: 20px; border-radius: 10px;">
+                        <h4>Sel Hewan</h4>
+                        <ul>
+                            <li>Tidak memiliki dinding sel</li>
+                            <li>Tidak memiliki kloroplas</li>
+                            <li>Memiliki vakuola kecil</li>
+                            <li>Bentuk tidak tetap</li>
+                            <li>Memiliki sentriol</li>
+                            <li>Memiliki lisosom</li>
+                        </ul>
+                    </div>
+                    <div style="background: rgba(118, 75, 162, 0.1); padding: 20px; border-radius: 10px;">
+                        <h4>Sel Tumbuhan</h4>
+                        <ul>
+                            <li>Memiliki dinding sel</li>
+                            <li>Memiliki kloroplas</li>
+                            <li>Memiliki vakuola besar</li>
+                            <li>Bentuk tetap</li>
+                            <li>Tidak memiliki sentriol</li>
+                            <li>Tidak memiliki lisosom</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="interactive-box">
+                <h3><i class="fas fa-ruler"></i> Ukuran dan Bentuk Sel</h3>
+                <p>Sel memiliki ukuran yang sangat bervariasi:</p>
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    <li><strong>Sel terkecil:</strong> Bakteri (0,1-1 μm)</li>
+                    <li><strong>Sel terbesar:</strong> Sel telur burung unta (diameter 15 cm)</li>
+                    <li><strong>Sel manusia:</strong> 10-30 μm</li>
+                    <li><strong>Bentuk sel:</strong> Bulat, pipih, memanjang, bercabang, dll</li>
+                </ul>
+            </div>
+
+            <div class="interactive-box">
+                <h3><i class="fas fa-exchange-alt"></i> Transportasi Sel</h3>
+                <p>Zat dapat masuk dan keluar sel melalui berbagai cara:</p>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px;">
+                    <div style="background: rgba(34, 197, 94, 0.1); padding: 20px; border-radius: 10px;">
+                        <h4>Transportasi Pasif</h4>
+                        <ul>
+                            <li><strong>Difusi:</strong> Pergerakan zat dari konsentrasi tinggi ke rendah</li>
+                            <li><strong>Osmosis:</strong> Pergerakan air melalui membran semipermeabel</li>
+                        </ul>
+                    </div>
+                    <div style="background: rgba(239, 68, 68, 0.1); padding: 20px; border-radius: 10px;">
+                        <h4>Transportasi Aktif</h4>
+                        <ul>
+                            <li>Membutuhkan energi (ATP)</li>
+                            <li>Dapat melawan gradien konsentrasi</li>
+                            <li>Contoh: pompa natrium-kalium</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="interactive-box">
+                <h3><i class="fas fa-divide"></i> Pembelahan Sel</h3>
+                <p>Sel dapat membelah diri untuk pertumbuhan dan reproduksi:</p>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px;">
+                    <div style="background: rgba(59, 130, 246, 0.1); padding: 20px; border-radius: 10px;">
+                        <h4>Mitosis</h4>
+                        <ul>
+                            <li>Pembelahan sel somatik</li>
+                            <li>Menghasilkan 2 sel anak identik</li>
+                            <li>Untuk pertumbuhan dan perbaikan jaringan</li>
+                        </ul>
+                    </div>
+                    <div style="background: rgba(168, 85, 247, 0.1); padding: 20px; border-radius: 10px;">
+                        <h4>Meiosis</h4>
+                        <ul>
+                            <li>Pembelahan sel gamet</li>
+                            <li>Menghasilkan 4 sel anak dengan setengah kromosom</li>
+                            <li>Untuk reproduksi seksual</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Rangkuman Section -->
+        <div id="rangkuman" class="content-section hidden">
+            <h2 class="section-title">📝 Rangkuman</h2>
+            
+            <div class="interactive-box">
+                <h3><i class="fas fa-book-open"></i> Ringkasan Materi</h3>
+                <p>Berdasarkan pembelajaran tentang sel, berikut adalah rangkuman lengkap:</p>
+            </div>
+
+            <div class="key-points">
+                <h4><i class="fas fa-check-circle"></i> Definisi Sel:</h4>
+                <p>Sel adalah unit struktural dan fungsional terkecil dari makhluk hidup yang mampu melakukan aktivitas kehidupan secara mandiri.</p>
+            </div>
+
+            <div class="key-points">
+                <h4><i class="fas fa-list"></i> Komponen Utama Sel:</h4>
+                <ul>
+                    <li><strong>Membran Sel:</strong> Pelindung dan pengatur keluar masuk zat</li>
+                    <li><strong>Sitoplasma:</strong> Tempat berlangsungnya reaksi kimia</li>
+                    <li><strong>Nukleus:</strong> Pusat kendali sel dan penyimpanan DNA</li>
+                    <li><strong>Organel:</strong> Struktur khusus dengan fungsi tertentu</li>
+                </ul>
+            </div>
+
+            <div class="interactive-box">
+                <h3><i class="fas fa-chart-bar"></i> Klasifikasi Sel</h3>
+                <div style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); padding: 25px; border-radius: 15px; margin: 20px 0;">
+                    <h4>Berdasarkan Struktur:</h4>
+                    <p><strong>Prokariotik:</strong> Sel tanpa membran inti (bakteri, archaea)</p>
+                    <p><strong>Eukariotik:</strong> Sel dengan membran inti (hewan, tumbuhan, jamur, protista)</p>
+                </div>
+            </div>
+
+            <div class="key-points">
+                <h4><i class="fas fa-lightbulb"></i> Fungsi Sel:</h4>
+                <ul>
+                    <li>Melakukan metabolisme</li>
+                    <li>Berkembang biak</li>
+                    <li>Mengatur aktivitas tubuh</li>
+                    <li>Menyimpan informasi genetik</li>
+                    <li>Menghasilkan energi</li>
+                    <li>Mengangkut zat-zat</li>
+                    <li>Melindungi organisme</li>
+                </ul>
+            </div>
+
+            <div class="interactive-box">
+                <h3><i class="fas fa-users"></i> Contoh Sel Spesifik</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 20px;">
+                    <div style="background: rgba(239, 68, 68, 0.1); padding: 20px; border-radius: 10px;">
+                        <h4><i class="fas fa-tint"></i> Sel Darah Merah</h4>
+                        <p>Berbentuk cakram bikonkaf, tidak memiliki nukleus, berfungsi mengangkut oksigen.</p>
+                    </div>
+                    <div style="background: rgba(59, 130, 246, 0.1); padding: 20px; border-radius: 10px;">
+                        <h4><i class="fas fa-dumbbell"></i> Sel Otot</h4>
+                        <p>Berbentuk memanjang, memiliki banyak mitokondria, berfungsi untuk kontraksi.</p>
+                    </div>
+                    <div style="background: rgba(34, 197, 94, 0.1); padding: 20px; border-radius: 10px;">
+                        <h4><i class="fas fa-brain"></i> Sel Saraf</h4>
+                        <p>Berbentuk bercabang, memiliki akson dan dendrit, berfungsi mengirim sinyal.</p>
+                    </div>
+                    <div style="background: rgba(168, 85, 247, 0.1); padding: 20px; border-radius: 10px;">
+                        <h4><i class="fas fa-seedling"></i> Sel Akar</h4>
+                        <p>Memiliki rambut akar, berfungsi menyerap air dan mineral dari tanah.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quiz Section -->
+        <div id="quiz" class="content-section hidden">
+            <h2 class="section-title">❓ Quiz Interaktif</h2>
+            
+            <div class="quiz-section">
+                <h3><i class="fas fa-question-circle"></i> Post Test (5 Soal)</h3>
+                <p>Pilih jawaban yang benar untuk setiap pertanyaan di bawah ini:</p>
+
+                <div class="quiz-question">
+                    <h4>1. Apa yang dimaksud dengan sel?</h4>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="selectAnswer(this, 'a')">
+                            A. Unit terbesar dari makhluk hidup
+                        </div>
+                        <div class="quiz-option" onclick="selectAnswer(this, 'b')">
+                            B. Unit terkecil dari makhluk hidup
+                        </div>
+                        <div class="quiz-option" onclick="selectAnswer(this, 'c')">
+                            C. Organ tubuh manusia
+                        </div>
+                        <div class="quiz-option" onclick="selectAnswer(this, 'd')">
+                            D. Sistem organ
+                        </div>
+                    </div>
+                </div>
+
+                <div class="quiz-question">
+                    <h4>2. Organel yang berfungsi sebagai "powerhouse of the cell" adalah...</h4>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="selectAnswer(this, 'a')">
+                            A. Nukleus
+                        </div>
+                        <div class="quiz-option" onclick="selectAnswer(this, 'b')">
+                            B. Mitokondria
+                        </div>
+                        <div class="quiz-option" onclick="selectAnswer(this, 'c')">
+                            C. Membran sel
+                        </div>
+                        <div class="quiz-option" onclick="selectAnswer(this, 'd')">
+                            D. Sitoplasma
+                        </div>
+                    </div>
+                </div>
+
+                <div class="quiz-question">
+                    <h4>3. Perbedaan utama sel hewan dan tumbuhan adalah...</h4>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="selectAnswer(this, 'a')">
+                            A. Sel hewan memiliki kloroplas
+                        </div>
+                        <div class="quiz-option" onclick="selectAnswer(this, 'b')">
+                            B. Sel tumbuhan memiliki dinding sel
+                        </div>
+                        <div class="quiz-option" onclick="selectAnswer(this, 'c')">
+                            C. Sel hewan memiliki vakuola besar
+                        </div>
+                        <div class="quiz-option" onclick="selectAnswer(this, 'd')">
+                            D. Sel tumbuhan tidak memiliki nukleus
+                        </div>
+                    </div>
+                </div>
+
+                <div class="quiz-question">
+                    <h4>4. Organel yang berisi materi genetik (DNA) adalah...</h4>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="selectAnswer(this, 'a')">
+                            A. Sitoplasma
+                        </div>
+                        <div class="quiz-option" onclick="selectAnswer(this, 'b')">
+                            B. Membran sel
+                        </div>
+                        <div class="quiz-option" onclick="selectAnswer(this, 'c')">
+                            C. Nukleus
+                        </div>
+                        <div class="quiz-option" onclick="selectAnswer(this, 'd')">
+                            D. Mitokondria
+                        </div>
+                    </div>
+                </div>
+
+                <div class="quiz-question">
+                    <h4>5. Siapa yang pertama kali mengamati sel menggunakan mikroskop?</h4>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="selectAnswer(this, 'a')">
+                            A. Antonie van Leeuwenhoek
+                        </div>
+                        <div class="quiz-option" onclick="selectAnswer(this, 'b')">
+                            B. Robert Hooke
+                        </div>
+                        <div class="quiz-option" onclick="selectAnswer(this, 'c')">
+                            C. Matthias Schleiden
+                        </div>
+                        <div class="quiz-option" onclick="selectAnswer(this, 'd')">
+                            D. Theodor Schwann
+                        </div>
+                    </div>
+                </div>
+
+                <button class="btn" onclick="submitQuiz()">Submit Jawaban</button>
+                <button class="btn btn-secondary" onclick="resetQuiz()">Reset Quiz</button>
+            </div>
+
+            <div id="quiz-results" class="hidden"></div>
+        </div>
+
+        <!-- Study Case Section -->
+        <div id="study-case" class="content-section hidden">
+            <h2 class="section-title">🔬 Study Case</h2>
+            
+            <div class="study-case">
+                <h3><i class="fas fa-microscope"></i> Latihan Study Case (12 Soal)</h3>
+                <p>Berikut adalah beberapa kasus yang akan menguji pemahaman Anda tentang sel:</p>
+
+                <div class="case-question">
+                    <h4>1. Kasus: Sel Darah Merah</h4>
+                    <p>Andi sedang mempelajari sel darah merah di laboratorium. Ia melihat bahwa sel darah merah tidak memiliki nukleus. Mengapa hal ini terjadi dan apa dampaknya terhadap fungsi sel darah merah?</p>
+                    <textarea placeholder="Tulis jawaban Anda di sini..."></textarea>
+                </div>
+
+                <div class="case-question">
+                    <h4>2. Kasus: Sel Otot</h4>
+                    <p>Budi adalah seorang atlet yang sering berlatih. Ia penasaran mengapa sel ototnya memiliki banyak mitokondria. Jelaskan hubungan antara aktivitas fisik dan jumlah mitokondria dalam sel otot!</p>
+                    <textarea placeholder="Tulis jawaban Anda di sini..."></textarea>
+                </div>
+
+                <div class="case-question">
+                    <h4>3. Kasus: Sel Tumbuhan di Tempat Gelap</h4>
+                    <p>Sari menanam tanaman di dalam ruangan yang gelap. Setelah beberapa hari, daun tanaman menjadi kuning. Mengapa hal ini terjadi? Jelaskan peran kloroplas dalam proses ini!</p>
+                    <textarea placeholder="Tulis jawaban Anda di sini..."></textarea>
+                </div>
+
+                <div class="case-question">
+                    <h4>4. Kasus: Sel Kanker</h4>
+                    <p>Dokter menjelaskan bahwa sel kanker membelah diri secara tidak terkendali. Berdasarkan pengetahuan tentang sel, organel apa yang berperan dalam proses pembelahan sel?</p>
+                    <textarea placeholder="Tulis jawaban Anda di sini..."></textarea>
+                </div>
+
+                <div class="case-question">
+                    <h4>5. Kasus: Sel Bakteri</h4>
+                    <p>Di laboratorium, siswa mengamati bakteri di bawah mikroskop. Mereka melihat bahwa bakteri tidak memiliki nukleus yang jelas. Jelaskan perbedaan struktur sel bakteri dengan sel hewan!</p>
+                    <textarea placeholder="Tulis jawaban Anda di sini..."></textarea>
+                </div>
+
+                <div class="case-question">
+                    <h4>6. Kasus: Sel Kulit</h4>
+                    <p>Ketika kita terpapar sinar matahari, kulit kita menjadi gelap. Proses apa yang terjadi pada sel kulit? Jelaskan peran membran sel dalam melindungi sel dari radiasi!</p>
+                    <textarea placeholder="Tulis jawaban Anda di sini..."></textarea>
+                </div>
+
+                <div class="case-question">
+                    <h4>7. Kasus: Sel Saraf</h4>
+                    <p>Sel saraf memiliki bentuk yang panjang dan bercabang. Mengapa sel saraf memiliki bentuk seperti ini? Bagaimana struktur ini mendukung fungsinya dalam mengirim sinyal?</p>
+                    <textarea placeholder="Tulis jawaban Anda di sini..."></textarea>
+                </div>
+
+                <div class="case-question">
+                    <h4>8. Kasus: Sel Hati</h4>
+                    <p>Hati adalah organ yang berfungsi untuk detoksifikasi. Sel hati memiliki banyak organel tertentu. Organel apa yang berperan dalam proses detoksifikasi dan mengapa?</p>
+                    <textarea placeholder="Tulis jawaban Anda di sini..."></textarea>
+                </div>
+
+                <div class="case-question">
+                    <h4>9. Kasus: Sel Telur</h4>
+                    <p>Sel telur adalah sel terbesar dalam tubuh manusia. Mengapa sel telur memiliki ukuran yang besar? Jelaskan peran sitoplasma dalam sel telur!</p>
+                    <textarea placeholder="Tulis jawaban Anda di sini..."></textarea>
+                </div>
+
+                <div class="case-question">
+                    <h4>10. Kasus: Sel Akar Tumbuhan</h4>
+                    <p>Akar tumbuhan memiliki sel-sel khusus yang berfungsi menyerap air dan mineral. Bagaimana struktur sel akar mendukung fungsinya dalam penyerapan zat?</p>
+                    <textarea placeholder="Tulis jawaban Anda di sini..."></textarea>
+                </div>
+
+                <div class="case-question">
+                    <h4>11. Kasus: Transportasi Sel</h4>
+                    <p>Ketika kita menambahkan garam ke dalam air, sel-sel dalam tubuh kita dapat mengalami perubahan. Jelaskan proses transportasi yang terjadi dan mengapa hal ini bisa berdampak pada sel!</p>
+                    <textarea placeholder="Tulis jawaban Anda di sini..."></textarea>
+                </div>
+
+                <div class="case-question">
+                    <h4>12. Kasus: Pembelahan Sel</h4>
+                    <p>Seorang siswa mengamati pembelahan sel di laboratorium. Ia melihat bahwa sel membelah menjadi dua sel yang identik. Jenis pembelahan apa yang sedang diamati dan mengapa sel melakukan pembelahan?</p>
+                    <textarea placeholder="Tulis jawaban Anda di sini..."></textarea>
+                </div>
+
+                <button class="btn" onclick="submitStudyCase()">Submit Study Case</button>
+                <button class="btn btn-secondary" onclick="resetStudyCase()">Reset Study Case</button>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p><i class="fas fa-graduation-cap"></i> Materi Pembelajaran IPA Kelas 8 SMP</p>
+            <p class="copyright">© 2024 @AgungFebrian - All Rights Reserved</p>
+            <p><i class="fas fa-heart"></i> Dibuat dengan semangat untuk pendidikan Indonesia</p>
+        </div>
+    </div>
+
+    <script>
+        // Quiz answers
+        const quizAnswers = {
+            1: 'b', // Unit terkecil dari makhluk hidup
+            2: 'b', // Mitokondria
+            3: 'b', // Sel tumbuhan memiliki dinding sel
+            4: 'c', // Nukleus
+            5: 'b'  // Robert Hooke
+        };
+
+        let currentAnswers = {};
+        let quizSubmitted = false;
+
+        // Navigation
+        function showSection(sectionId) {
+            // Hide all sections
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.classList.add('hidden');
+            });
+            
+            // Show selected section
+            document.getElementById(sectionId).classList.remove('hidden');
+            
+            // Update progress bar
+            updateProgress();
+            
+            // Add animation
+            document.getElementById(sectionId).classList.add('fade-in');
+        }
+
+        // Progress bar
+        function updateProgress() {
+            const sections = ['materi', 'rangkuman', 'quiz', 'study-case'];
+            const visibleSection = sections.find(section => !document.getElementById(section).classList.contains('hidden'));
+            const progress = ((sections.indexOf(visibleSection) + 1) / sections.length) * 100;
+            
+            document.getElementById('progressBar').style.width = progress + '%';
+        }
+
+        // Quiz functions
+        function selectAnswer(element, answer) {
+            if (quizSubmitted) return;
+            
+            // Remove previous selection from this question
+            const question = element.parentElement;
+            question.querySelectorAll('.quiz-option').forEach(option => {
+                option.classList.remove('selected');
+            });
+            
+            // Select new answer
+            element.classList.add('selected');
+            
+            // Store answer
+            const questionNumber = Array.from(document.querySelectorAll('.quiz-question')).indexOf(question.parentElement) + 1;
+            currentAnswers[questionNumber] = answer;
+        }
+
+        function submitQuiz() {
+            if (Object.keys(currentAnswers).length < 5) {
+                alert('Silakan jawab semua pertanyaan terlebih dahulu!');
+                return;
+            }
+
+            quizSubmitted = true;
+            let score = 0;
+            let feedback = '<h3>Hasil Quiz:</h3>';
+
+            for (let i = 1; i <= 5; i++) {
+                const questionElement = document.querySelectorAll('.quiz-question')[i - 1];
+                const options = questionElement.querySelectorAll('.quiz-option');
+                const userAnswer = currentAnswers[i];
+                const correctAnswer = quizAnswers[i];
+
+                // Mark correct and incorrect answers
+                options.forEach((option, index) => {
+                    const optionLetter = String.fromCharCode(97 + index); // a, b, c, d
+                    if (optionLetter === correctAnswer) {
+                        option.classList.add('correct');
+                    } else if (optionLetter === userAnswer && userAnswer !== correctAnswer) {
+                        option.classList.add('incorrect');
+                    }
+                });
+
+                if (userAnswer === correctAnswer) {
+                    score++;
+                }
+
+                // Add feedback
+                feedback += `<p><strong>Soal ${i}:</strong> ${userAnswer === correctAnswer ? '✅ Benar' : '❌ Salah'} (Jawaban benar: ${correctAnswer.toUpperCase()})</p>`;
+            }
+
+            const percentage = (score / 5) * 100;
+            feedback += `<h4>Skor Anda: ${score}/5 (${percentage}%)</h4>`;
+            
+            if (percentage >= 80) {
+                feedback += '<p style="color: #22c55e;">🎉 Excellent! Anda sangat memahami materi!</p>';
+            } else if (percentage >= 60) {
+                feedback += '<p style="color: #f59e0b;">👍 Bagus! Anda sudah memahami sebagian besar materi.</p>';
+            } else {
+                feedback += '<p style="color: #ef4444;">📚 Jangan menyerah! Pelajari kembali materinya.</p>';
+            }
+
+            document.getElementById('quiz-results').innerHTML = feedback;
+            document.getElementById('quiz-results').classList.remove('hidden');
+        }
+
+        function resetQuiz() {
+            quizSubmitted = false;
+            currentAnswers = {};
+            
+            document.querySelectorAll('.quiz-option').forEach(option => {
+                option.classList.remove('selected', 'correct', 'incorrect');
+            });
+            
+            document.getElementById('quiz-results').classList.add('hidden');
+        }
+
+        // Study Case functions
+        function submitStudyCase() {
+            const textareas = document.querySelectorAll('.case-question textarea');
+            let filledCount = 0;
+            
+            textareas.forEach(textarea => {
+                if (textarea.value.trim() !== '') {
+                    filledCount++;
+                }
+            });
+
+            if (filledCount < 12) {
+                alert(`Silakan isi semua pertanyaan! Anda baru mengisi ${filledCount} dari 12 pertanyaan.`);
+                return;
+            }
+
+            const successMessage = `
+                <div class="success-message">
+                    <h3>🎉 Study Case Berhasil Disubmit!</h3>
+                    <p>Terima kasih telah mengerjakan study case. Jawaban Anda telah tersimpan.</p>
+                    <p><strong>Pesan:</strong> Study case ini dirancang untuk menguji pemahaman mendalam Anda tentang sel. 
+                    Setiap kasus menghubungkan teori dengan aplikasi nyata dalam kehidupan sehari-hari.</p>
+                </div>
+            `;
+
+            // Show success message
+            const studyCaseSection = document.getElementById('study-case');
+            const existingMessage = studyCaseSection.querySelector('.success-message');
+            if (existingMessage) {
+                existingMessage.remove();
+            }
+            studyCaseSection.insertAdjacentHTML('beforeend', successMessage);
+        }
+
+        function resetStudyCase() {
+            document.querySelectorAll('.case-question textarea').forEach(textarea => {
+                textarea.value = '';
+            });
+            
+            const successMessage = document.querySelector('.success-message');
+            if (successMessage) {
+                successMessage.remove();
+            }
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            updateProgress();
+            
+            // Add scroll animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('bounce-in');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.content-section').forEach(section => {
+                observer.observe(section);
+            });
+        });
+
+        // Smooth scrolling for navigation
+        document.querySelectorAll('.nav-item').forEach(item => {
+            item.addEventListener('click', function() {
+                const targetSection = this.getAttribute('onclick').match(/'([^']+)'/)[1];
+                document.getElementById(targetSection).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html> 
