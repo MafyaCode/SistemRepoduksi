@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Materi Ajar IPA Kelas 8: Pengenalan Sel</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f4f8; /* Latar belakang abu-abu muda */
+        }
+        /* Animasi untuk elemen yang muncul saat scroll */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* Styling untuk kuis */
+        .quiz-option {
+            transition: all 0.2s ease-in-out;
+        }
+        .quiz-option:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .quiz-option.selected {
+            background-color: #3b82f6; /* Biru */
+            color: white;
+            border-color: #2563eb;
+        }
+        .quiz-option.correct {
+            background-color: #22c55e; /* Hijau */
+            color: white;
+        }
+        .quiz-option.incorrect {
+            background-color: #ef4444; /* Merah */
+            color: white;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Header dan Navigasi -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold text-blue-600">IPA Kelas 8</div>
+            <div class="hidden md:flex space-x-6">
+                <a href="#materi" class="text-gray-600 hover:text-blue-600">Materi</a>
+                <a href="#rangkuman" class="text-gray-600 hover:text-blue-600">Rangkuman</a>
+                <a href="#kuis" class="text-gray-600 hover:text-blue-600">Kuis</a>
+                <a href="#tugas" class="text-gray-600 hover:text-blue-600">Tugas</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Konten Utama -->
+    <main class="container mx-auto px-6 py-12">
+
+        <!-- Judul Bab -->
+        <section class="text-center mb-16">
+            <h1 class="text-4xl md:text-6xl font-bold text-gray-800 mb-4 reveal">Bab 1: Pengenalan Sel</h1>
+            <p class="text-lg text-gray-500 reveal">Jenjang: SMP | Kelas: 8 | Semester: 1</p>
+        </section>
+
+        <!-- Materi Lengkap -->
+        <section id="materi" class="space-y-12">
+            
+            <!-- Pengantar: Apa itu Sel? -->
+            <article class="bg-white p-8 rounded-xl shadow-lg reveal">
+                <h2 class="text-3xl font-bold text-blue-700 mb-4">1. Apa Itu Sel?</h2>
+                <div class="flex flex-col md:flex-row items-center gap-8">
+                    <div class="md:w-2/3 space-y-4 text-lg">
+                        <p>Pernahkah kamu melihat sebuah bangunan? Bangunan itu tersusun dari banyak sekali batu bata. Sama seperti bangunan, semua makhluk hidup—mulai dari bakteri terkecil hingga gajah terbesar, termasuk kita manusia—juga tersusun dari bagian-bagian kecil yang disebut <strong class="text-blue-600">sel</strong>.</p>
+                        <p>Sel adalah unit struktural dan fungsional terkecil dari makhluk hidup. Artinya, sel adalah "batu bata" kehidupan. Setiap bagian tubuh kita, dari kulit, rambut, hingga organ dalam seperti jantung, semuanya tersusun dari sel.</p>
+                        <div class="bg-blue-50 border-l-4 border-blue-500 p-4 rounded-r-lg">
+                            <h3 class="font-semibold text-blue-800">Poin Kunci: Teori Sel</h3>
+                            <ul class="list-disc list-inside mt-2 text-gray-700">
+                                <li>Semua makhluk hidup tersusun atas sel.</li>
+                                <li>Sel adalah unit dasar dari struktur dan fungsi makhluk hidup.</li>
+                                <li>Semua sel berasal dari sel yang sudah ada sebelumnya.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="md:w-1/3">
+                        <!-- Diagram Analogi Sel dan Batu Bata -->
+                        <div class="text-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-full h-auto" viewBox="0 0 400 200">
+                                <!-- Batu Bata -->
+                                <g>
+                                    <rect x="50" y="100" width="60" height="30" fill="#d9534f" stroke="#a94442" stroke-width="2" rx="2"/>
+                                    <text x="80" y="120" font-family="Inter" font-size="12" fill="white" text-anchor="middle">Bata</text>
+                                </g>
+                                <!-- Panah -->
+                                <path d="M120 115 L180 115" stroke="#3b82f6" stroke-width="2" marker-end="url(#arrowhead)"/>
+                                <defs><marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#3b82f6"/></marker></defs>
+                                <!-- Dinding -->
+                                <g>
+                                    <rect x="190" y="70" width="160" height="90" fill="#f0ad4e" stroke="#eea236" stroke-width="2" rx="3"/>
+                                    <line x1="190" y1="100" x2="350" y2="100" stroke="#eea236" stroke-width="1"/>
+                                    <line x1="190" y1="130" x2="350" y2="130" stroke="#eea236" stroke-width="1"/>
+                                    <line x1="270" y1="70" x2="270" y2="160" stroke="#eea236" stroke-width="1"/>
+                                    <text x="270" y="120" font-family="Inter" font-size="12" fill="white" text-anchor="middle">Bangunan</text>
+                                </g>
+                            </svg>
+                            <p class="mt-2 text-sm text-gray-600">Analogi: Sel seperti batu bata yang menyusun bangunan (makhluk hidup).</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Sejarah Penemuan Sel -->
+            <article class="bg-white p-8 rounded-xl shadow-lg reveal">
+                <h2 class="text-3xl font-bold text-green-700 mb-6">2. Bagaimana Sel Ditemukan? Peran Mikroskop</h2>
+                <p class="mb-8 text-lg">Karena ukurannya yang sangat kecil (mikroskopis), sel tidak bisa dilihat dengan mata telanjang. Penemuan sel sangat bergantung pada penemuan alat yang bisa memperbesar objek, yaitu <strong class="text-green-600">mikroskop</strong>.</p>
+                <!-- Timeline Sejarah -->
+                <div class="relative border-l-2 border-green-500 ml-4">
+                    <!-- Item 1: Robert Hooke -->
+                    <div class="mb-10 ml-8">
+                        <span class="absolute flex items-center justify-center w-8 h-8 bg-green-200 rounded-full -left-4 ring-4 ring-white">
+                            <svg class="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 20 20"><path d="M10 12a2 2 0 100-4 2 2 0 000 4z"/><path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.022 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd"/></svg>
+                        </span>
+                        <h3 class="text-xl font-semibold text-gray-900">1665 - Robert Hooke</h3>
+                        <time class="block mb-2 text-sm font-normal leading-none text-gray-500">Ilmuwan Inggris</time>
+                        <p class="text-base text-gray-700">Mengamati sayatan tipis gabus dari kulit pohon ek menggunakan mikroskop buatannya. Ia melihat ada ruangan-ruangan kecil kosong yang mirip kamar biara, yang ia sebut "cellula" atau <strong class="text-gray-900">sel</strong>. Inilah pertama kalinya istilah "sel" digunakan.</p>
+                    </div>
+                    <!-- Item 2: Antonie van Leeuwenhoek -->
+                    <div class="mb-10 ml-8">
+                        <span class="absolute flex items-center justify-center w-8 h-8 bg-green-200 rounded-full -left-4 ring-4 ring-white">
+                            <svg class="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M7 4a3 3 0 016 0v4a3 3 0 11-6 0V4zm4 10.938l-1.48-1.482A.75.75 0 009 14.02V18h2v-3.98a.75.75 0 00-.52-.722L9 12.828V14.5a.5.5 0 01-.5.5h-1a.5.5 0 01-.5-.5v-1.672l-1.48-1.482A.75.75 0 004 11.98V18h2v-3.98a.75.75 0 00-.52-.722L4 12.828V14.5a.5.5 0 01-.5.5h-1a.5.5 0 01-.5-.5v-1.672l-1.48-1.482A.75.75 0 000 11.98V18h2v-3.98a.75.75 0 00-.52-.722L0 12.828V14.5a.5.5 0 01-.5.5h-1a.5.5 0 01-.5-.5v-1.672l-1.48-1.482A.75.75 0 00-4 11.98V18h2v-3.98a.75.75 0 00-.52-.722L-4 12.828V14.5a.5.5 0 01-.5.5h-1a.5.5 0 01-.5-.5v-1.672l-1.48-1.482A.75.75 0 00-8 11.98V18h2v-3.98a.75.75 0 00-.52-.722L-8 12.828V14.5a.5.5 0 01-.5.5h-1a.5.5 0 01-.5-.5v-1.672z" clip-rule="evenodd"/></svg>
+                        </span>
+                        <h3 class="text-xl font-semibold text-gray-900">1674 - Antonie van Leeuwenhoek</h3>
+                        <time class="block mb-2 text-sm font-normal leading-none text-gray-500">Ilmuwan Belanda</time>
+                        <p class="text-base text-gray-700">Membuat mikroskop lensa tunggal yang lebih kuat. Ia adalah orang pertama yang melihat <strong class="text-gray-900">sel hidup</strong>, seperti bakteri dari air danau dan kerokan giginya, yang ia sebut "animalcula" (hewan kecil).</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Struktur Sel Hewan dan Tumbuhan -->
+            <article class="bg-white p-8 rounded-xl shadow-lg reveal">
+                <h2 class="text-3xl font-bold text-purple-700 mb-4">3. Mengintip ke Dalam Sel: Sel Hewan vs Sel Tumbuhan</h2>
+                <p class="mb-8 text-lg">Meskipun semua makhluk hidup tersusun dari sel, sel hewan dan sel tumbuhan memiliki beberapa perbedaan mendasar. Perbedaan inilah yang membuat tumbuhan kaku dan tidak bisa bergerak bebas, sementara hewan bisa bergerak aktif.</p>
+                
+                <div class="bg-purple-50 p-6 rounded-lg">
+                    <div class="flex justify-center mb-4">
+                        <div class="bg-white p-2 rounded-full shadow-md">
+                            <button id="btnHewan" class="px-4 py-2 rounded-full bg-purple-600 text-white font-semibold">Sel Hewan</button>
+                            <button id="btnTumbuhan" class="px-4 py-2 rounded-full text-gray-600 font-semibold">Sel Tumbuhan</button>
+                        </div>
+                    </div>
+
+                    <!-- Diagram Sel -->
+                    <div id="diagramContainer" class="relative w-full max-w-2xl mx-auto aspect-square">
+                        <!-- Diagram Sel Hewan (Default) -->
+                        <div id="selHewan" class="w-full h-full">
+                            <img src="https://placehold.co/600x600/a78bfa/ffffff?text=Diagram+Sel+Hewan" alt="Diagram Sel Hewan" class="w-full h-full object-contain">
+                            <!-- Label-label bisa ditambahkan di sini dengan posisi absolut -->
+                        </div>
+                        <!-- Diagram Sel Tumbuhan (Hidden) -->
+                        <div id="selTumbuhan" class="w-full h-full hidden">
+                            <img src="https://placehold.co/600x600/84cc16/ffffff?text=Diagram+Sel+Tumbuhan" alt="Diagram Sel Tumbuhan" class="w-full h-full object-contain">
+                        </div>
+                    </div>
+
+                    <!-- Tabel Perbedaan -->
+                    <div class="mt-8 overflow-x-auto">
+                        <table class="w-full text-left border-collapse">
+                            <thead>
+                                <tr class="bg-purple-200">
+                                    <th class="p-3 font-bold uppercase text-purple-800 border border-purple-300">Organel (Bagian Sel)</th>
+                                    <th class="p-3 font-bold uppercase text-purple-800 border border-purple-300">Fungsi</th>
+                                    <th class="p-3 font-bold uppercase text-purple-800 border border-purple-300 text-center">Ada di Sel Hewan?</th>
+                                    <th class="p-3 font-bold uppercase text-purple-800 border border-purple-300 text-center">Ada di Sel Tumbuhan?</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="hover:bg-purple-100">
+                                    <td class="p-3 font-semibold border border-purple-300">Membran Sel</td>
+                                    <td class="p-3 border border-purple-300">Mengatur keluar masuknya zat, seperti gerbang keamanan.</td>
+                                    <td class="p-3 text-center text-2xl text-green-500 border border-purple-300">✓</td>
+                                    <td class="p-3 text-center text-2xl text-green-500 border border-purple-300">✓</td>
+                                </tr>
+                                <tr class="hover:bg-purple-100">
+                                    <td class="p-3 font-semibold border border-purple-300">Inti Sel (Nukleus)</td>
+                                    <td class="p-3 border border-purple-300">Pusat kendali sel, seperti otaknya sel.</td>
+                                    <td class="p-3 text-center text-2xl text-green-500 border border-purple-300">✓</td>
+                                    <td class="p-3 text-center text-2xl text-green-500 border border-purple-300">✓</td>
+                                </tr>
+                                <tr class="hover:bg-purple-100">
+                                    <td class="p-3 font-semibold border border-purple-300">Sitoplasma</td>
+                                    <td class="p-3 border border-purple-300">Cairan di dalam sel, tempat organel-organel berada.</td>
+                                    <td class="p-3 text-center text-2xl text-green-500 border border-purple-300">✓</td>
+                                    <td class="p-3 text-center text-2xl text-green-500 border border-purple-300">✓</td>
+                                </tr>
+                                <tr class="hover:bg-purple-100">
+                                    <td class="p-3 font-semibold border border-purple-300">Mitokondria</td>
+                                    <td class="p-3 border border-purple-300">"Pembangkit tenaga" sel, tempat menghasilkan energi.</td>
+                                    <td class="p-3 text-center text-2xl text-green-500 border border-purple-300">✓</td>
+                                    <td class="p-3 text-center text-2xl text-green-500 border border-purple-300">✓</td>
+                                </tr>
+                                <tr class="bg-green-100 hover:bg-green-200">
+                                    <td class="p-3 font-semibold text-green-800 border border-purple-300">Dinding Sel</td>
+                                    <td class="p-3 border border-purple-300">Memberi bentuk kaku dan melindungi sel tumbuhan.</td>
+                                    <td class="p-3 text-center text-2xl text-red-500 border border-purple-300">✗</td>
+                                    <td class="p-3 text-center text-2xl text-green-500 border border-purple-300">✓</td>
+                                </tr>
+                                <tr class="bg-green-100 hover:bg-green-200">
+                                    <td class="p-3 font-semibold text-green-800 border border-purple-300">Kloroplas</td>
+                                    <td class="p-3 border border-purple-300">Tempat terjadinya fotosintesis (memasak makanan).</td>
+                                    <td class="p-3 text-center text-2xl text-red-500 border border-purple-300">✗</td>
+                                    <td class="p-3 text-center text-2xl text-green-500 border border-purple-300">✓</td>
+                                </tr>
+                                <tr class="hover:bg-purple-100">
+                                    <td class="p-3 font-semibold border border-purple-300">Vakuola</td>
+                                    <td class="p-3 border border-purple-300">Kantong penyimpan air, makanan, dan sisa zat.</td>
+                                    <td class="p-3 text-center text-gray-600 border border-purple-300">(Kecil, banyak)</td>
+                                    <td class="p-3 text-center text-gray-600 border border-purple-300">(Besar, tunggal)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Spesialisasi Sel -->
+            <article class="bg-white p-8 rounded-xl shadow-lg reveal">
+                <h2 class="text-3xl font-bold text-yellow-700 mb-4">4. Dari Satu Sel Menjadi Organisme: Spesialisasi Sel</h2>
+                <p class="mb-6 text-lg">Pada organisme multiseluler (bersel banyak) seperti manusia, sel-sel tidak bekerja sendirian. Mereka bekerja sama dan memiliki tugas khusus. Proses ini disebut <strong class="text-yellow-600">spesialisasi sel</strong>.</p>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- Contoh Spesialisasi -->
+                    <div class="space-y-4">
+                        <h3 class="text-xl font-semibold">Contoh Spesialisasi Sel:</h3>
+                        <ul class="list-disc list-inside space-y-2">
+                            <li><strong>Sel Saraf:</strong> Berbentuk panjang untuk mengirimkan sinyal listrik dengan cepat ke seluruh tubuh.</li>
+                            <li><strong>Sel Otot:</strong> Mengandung banyak mitokondria untuk menghasilkan energi yang dibutuhkan untuk bergerak.</li>
+                            <li><strong>Sel Darah Merah:</strong> Tidak memiliki inti sel saat dewasa agar bisa membawa lebih banyak oksigen.</li>
+                            <li><strong>Sel Akar Tumbuhan:</strong> Memiliki rambut akar untuk memperluas area penyerapan air dan mineral.</li>
+                        </ul>
+                    </div>
+                    <!-- Tingkatan Organisasi -->
+                    <div class="bg-yellow-50 p-4 rounded-lg">
+                        <h3 class="text-xl font-semibold text-yellow-800 mb-2">Tingkatan Organisasi Kehidupan</h3>
+                        <p class="text-center text-2xl font-bold tracking-wider">
+                            <span class="text-red-500">Sel</span> → 
+                            <span class="text-orange-500">Jaringan</span> → 
+                            <span class="text-yellow-500">Organ</span> → 
+                            <span class="text-green-500">Sistem Organ</span> → 
+                            <span class="text-blue-500">Organisme</span>
+                        </p>
+                        <p class="mt-2 text-sm text-gray-600">Sekelompok sel yang sama membentuk jaringan (misal: jaringan otot). Beberapa jaringan membentuk organ (misal: jantung). Beberapa organ bekerja sama membentuk sistem organ (misal: sistem peredaran darah). Semua sistem organ membentuk organisme (misal: manusia).</p>
+                    </div>
+                </div>
+            </article>
+
+        </section>
+
+        <!-- Rangkuman -->
+        <section id="rangkuman" class="mt-16 bg-gray-800 text-white p-8 rounded-xl shadow-lg reveal">
+            <h2 class="text-3xl font-bold text-center mb-6">Rangkuman Bab 1: Pengenalan Sel</h2>
+            <ul class="space-y-3 list-disc list-inside text-lg">
+                <li><strong>Sel</strong> adalah unit terkecil penyusun makhluk hidup.</li>
+                <li>Penemuan sel dibantu oleh penemuan <strong>mikroskop</strong> oleh ilmuwan seperti Robert Hooke dan Antonie van Leeuwenhoek.</li>
+                <li><strong>Sel tumbuhan</strong> memiliki <strong>dinding sel</strong> dan <strong>kloroplas</strong>, yang tidak dimiliki oleh <strong>sel hewan</strong>. Vakuola sel tumbuhan juga jauh lebih besar.</li>
+                <li><strong>Organel</strong> adalah bagian-bagian di dalam sel yang memiliki fungsi khusus, seperti inti sel (pusat kendali) dan mitokondria (pembangkit energi).</li>
+                <li>Pada organisme multiseluler, sel-sel mengalami <strong>spesialisasi</strong> untuk melakukan tugas tertentu.</li>
+                <li>Tingkatan organisasi kehidupan adalah: <strong>Sel → Jaringan → Organ → Sistem Organ → Organisme</strong>.</li>
+            </ul>
+        </section>
+
+        <!-- Kuis Singkat -->
+        <section id="kuis" class="mt-16 reveal">
+            <h2 class="text-3xl font-bold text-center mb-8">Kuis Singkat: Uji Pemahamanmu!</h2>
+            <div id="quiz-container" class="bg-white p-8 rounded-xl shadow-lg max-w-3xl mx-auto">
+                <!-- Pertanyaan Kuis akan dimuat di sini oleh JavaScript -->
+            </div>
+            <!-- Modal Hasil Kuis -->
+            <div id="quiz-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center p-4">
+                <div class="bg-white rounded-lg shadow-xl p-8 max-w-lg w-full">
+                    <h3 id="modal-title" class="text-2xl font-bold mb-4">Hasil Kuis</h3>
+                    <p id="modal-score" class="text-lg mb-4"></p>
+                    <div id="modal-explanation" class="space-y-3 text-sm"></div>
+                    <button id="modal-close" class="mt-6 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 w-full">Coba Lagi</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tugas Studi Kasus -->
+        <section id="tugas" class="mt-16 bg-white p-8 rounded-xl shadow-lg reveal">
+            <h2 class="text-3xl font-bold text-indigo-700 mb-6">Latihan: Studi Kasus (Esai)</h2>
+            <p class="mb-6 text-lg">Jawablah pertanyaan-pertanyaan berikut dalam buku catatanmu. Gunakan imajinasi dan pemahamanmu tentang materi sel untuk menyelesaikan setiap kasus!</p>
+            <div class="space-y-4">
+                <ol class="list-decimal list-inside space-y-4">
+                    <li><strong>Kasus Petualang Molekul:</strong> Bayangkan kamu adalah sebuah molekul air di tanah. Ceritakan perjalananmu masuk ke dalam sel akar tumbuhan. Bagian sel apa saja yang kamu lewati dan apa fungsinya?</li>
+                    <li><strong>Kasus Kastil Tumbuhan:</strong> Jika sebuah sel tumbuhan adalah sebuah kastil, bagian sel manakah yang akan menjadi dinding benteng, raja/ratu yang memerintah, dan dapur tempat memasak makanan? Jelaskan alasanmu untuk setiap pilihan!</li>
+                    <li><strong>Kasus Energi Hilang:</strong> Sebuah penyakit misterius menyerang hewan dan membuat semua mitokondria di dalam selnya berhenti bekerja. Apa yang akan terjadi pada sel hewan tersebut? Apa dampaknya bagi hewan itu secara keseluruhan?</li>
+                    <li><strong>Kasus Makhluk Asing:</strong> Kamu menemukan organisme bersel satu di sebuah danau. Bagaimana caramu menentukan apakah organisme itu lebih mirip sel tumbuhan atau sel hewan? Jelaskan langkah-langkah pengamatanmu!</li>
+                    <li><strong>Kasus Sel Sempurna:</strong> Jika kamu bisa menambahkan satu organel dari sel tumbuhan ke dalam sel hewan untuk membuatnya "lebih hebat", organel apa yang akan kamu pilih dan mengapa?</li>
+                    <li><strong>Kasus Dinding Penghalang:</strong> Apa yang akan terjadi jika sel hewan tiba-tiba memiliki dinding sel yang kaku seperti sel tumbuhan? Bagaimana hal itu akan memengaruhi cara hewan bergerak?</li>
+                    <li><strong>Kasus Sang Arsitek:</strong> Kamu adalah seorang ilmuwan yang ditugaskan merancang sel buatan. Tiga organel apa yang paling penting dan wajib ada agar sel itu bisa dianggap "hidup"? Berikan alasanmu!</li>
+                    <li><strong>Kasus Komunikasi Cepat:</strong> Mengapa sel saraf memiliki bentuk yang panjang dan bercabang, tidak bulat seperti sel pada umumnya? Hubungkan bentuknya dengan fungsinya!</li>
+                    <li><strong>Kasus Fotosintesis di Kegelapan:</strong> Sebuah tanaman diletakkan di dalam ruangan yang benar-benar gelap selama seminggu. Apa yang akan terjadi pada kloroplas di dalam sel-sel daunnya? Jelaskan prosesnya.</li>
+                    <li><strong>Kasus Sel Punca Ajaib:</strong> Sel punca adalah sel yang belum terspesialisasi. Jika kulitmu terluka, bagaimana sel punca dapat membantu menyembuhkan luka tersebut? Jelaskan proses spesialisasi yang mungkin terjadi!</li>
+                </ol>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white text-center py-6 mt-12">
+        <p>&copy; 2024 | Dibuat dengan ❤️ untuk Pembelajaran | @AgungFebrian</p>
+    </footer>
+
+    <script>
+        // --- Skrip untuk Animasi Scroll ---
+        const revealElements = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        revealElements.forEach(el => observer.observe(el));
+
+        // --- Skrip untuk Toggle Diagram Sel ---
+        const btnHewan = document.getElementById('btnHewan');
+        const btnTumbuhan = document.getElementById('btnTumbuhan');
+        const selHewanDiv = document.getElementById('selHewan');
+        const selTumbuhanDiv = document.getElementById('selTumbuhan');
+
+        btnHewan.addEventListener('click', () => {
+            selHewanDiv.classList.remove('hidden');
+            selTumbuhanDiv.classList.add('hidden');
+            btnHewan.classList.add('bg-purple-600', 'text-white');
+            btnTumbuhan.classList.remove('bg-purple-600', 'text-white');
+        });
+
+        btnTumbuhan.addEventListener('click', () => {
+            selTumbuhanDiv.classList.remove('hidden');
+            selHewanDiv.classList.add('hidden');
+            btnTumbuhan.classList.add('bg-purple-600', 'text-white');
+            btnHewan.classList.remove('bg-purple-600', 'text-white');
+        });
+
+        // --- Skrip untuk Kuis Interaktif ---
+        const quizData = [
+            {
+                question: "Siapakah ilmuwan yang pertama kali melihat 'ruangan-ruangan kecil' pada gabus dan menamainya 'sel'?",
+                options: ["Antonie van Leeuwenhoek", "Robert Hooke", "Isaac Newton", "Charles Darwin"],
+                answer: "Robert Hooke",
+                explanation: "Robert Hooke pada tahun 1665 adalah orang pertama yang mengamati sel mati dari gabus dan memberikan nama 'sel' karena bentuknya seperti kamar kecil."
+            },
+            {
+                question: "Bagian sel tumbuhan yang berfungsi memberikan bentuk kaku dan tidak dimiliki sel hewan adalah...",
+                options: ["Membran Sel", "Inti Sel", "Dinding Sel", "Mitokondria"],
+                answer: "Dinding Sel",
+                explanation: "Dinding sel terbuat dari selulosa yang kaku, memberikan perlindungan dan bentuk tetap pada sel tumbuhan. Sel hewan tidak memilikinya."
+            },
+            {
+                question: "Organel yang dijuluki sebagai 'pembangkit tenaga' sel karena berfungsi menghasilkan energi adalah...",
+                options: ["Nukleus", "Vakuola", "Kloroplas", "Mitokondria"],
+                answer: "Mitokondria",
+                explanation: "Mitokondria adalah tempat terjadinya respirasi seluler, yaitu proses pengubahan makanan menjadi energi (ATP) yang bisa digunakan oleh sel."
+            },
+            {
+                question: "Proses fotosintesis pada tumbuhan terjadi di dalam organel...",
+                options: ["Mitokondria", "Kloroplas", "Dinding Sel", "Vakuola"],
+                answer: "Kloroplas",
+                explanation: "Kloroplas mengandung klorofil (zat hijau daun) yang menangkap energi cahaya matahari untuk proses fotosintesis atau pembuatan makanan."
+            },
+            {
+                question: "Urutan tingkatan organisasi kehidupan dari yang terkecil hingga terbesar yang benar adalah...",
+                options: ["Jaringan -> Sel -> Organ -> Sistem Organ", "Sel -> Jaringan -> Organ -> Sistem Organ", "Organ -> Jaringan -> Sel -> Sistem Organ", "Sel -> Organ -> Jaringan -> Sistem Organ"],
+                answer: "Sel -> Jaringan -> Organ -> Sistem Organ",
+                explanation: "Sel adalah unit terkecil. Kumpulan sel membentuk jaringan, kumpulan jaringan membentuk organ, dan kumpulan organ membentuk sistem organ."
+            }
+        ];
+
+        const quizContainer = document.getElementById('quiz-container');
+        const quizModal = document.getElementById('quiz-modal');
+        const modalTitle = document.getElementById('modal-title');
+        const modalScore = document.getElementById('modal-score');
+        const modalExplanation = document.getElementById('modal-explanation');
+        const modalCloseBtn = document.getElementById('modal-close');
+
+        let currentQuestionIndex = 0;
+        let score = 0;
+        let userAnswers = [];
+
+        function loadQuiz() {
+            currentQuestionIndex = 0;
+            score = 0;
+            userAnswers = [];
+            showQuestion();
+        }
+
+        function showQuestion() {
+            const currentQuestion = quizData[currentQuestionIndex];
+            let optionsHTML = '';
+            currentQuestion.options.forEach(option => {
+                optionsHTML += `<button class="quiz-option w-full text-left p-4 border-2 border-gray-300 rounded-lg hover:bg-gray-100">${option}</button>`;
+            });
+
+            quizContainer.innerHTML = `
+                <div class="mb-4">
+                    <p class="text-gray-600">Pertanyaan ${currentQuestionIndex + 1} dari ${quizData.length}</p>
+                    <h3 class="text-xl font-semibold mt-2">${currentQuestion.question}</h3>
+                </div>
+                <div class="space-y-3">${optionsHTML}</div>
+                <button id="next-btn" class="mt-6 bg-gray-300 text-gray-500 px-6 py-2 rounded-lg cursor-not-allowed w-full" disabled>Selanjutnya</button>
+            `;
+
+            const optionButtons = quizContainer.querySelectorAll('.quiz-option');
+            const nextBtn = document.getElementById('next-btn');
+            
+            let selectedOption = null;
+
+            optionButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    optionButtons.forEach(btn => btn.classList.remove('selected'));
+                    button.classList.add('selected');
+                    selectedOption = button.textContent;
+                    nextBtn.disabled = false;
+                    nextBtn.classList.remove('bg-gray-300', 'text-gray-500', 'cursor-not-allowed');
+                    nextBtn.classList.add('bg-blue-600', 'text-white', 'hover:bg-blue-700');
+                });
+            });
+
+            nextBtn.addEventListener('click', () => {
+                userAnswers[currentQuestionIndex] = selectedOption;
+                if (selectedOption === currentQuestion.answer) {
+                    score++;
+                }
+                currentQuestionIndex++;
+                if (currentQuestionIndex < quizData.length) {
+                    showQuestion();
+                } else {
+                    showResults();
+                }
+            });
+        }
+
+        function showResults() {
+            modalScore.textContent = `Kamu benar ${score} dari ${quizData.length} pertanyaan!`;
+            
+            let explanationHTML = '';
+            quizData.forEach((q, index) => {
+                const isCorrect = userAnswers[index] === q.answer;
+                explanationHTML += `
+                    <div class="p-3 rounded-lg ${isCorrect ? 'bg-green-50' : 'bg-red-50'}">
+                        <p class="font-semibold">${index + 1}. ${q.question}</p>
+                        <p class="mt-1">Jawabanmu: <span class="${isCorrect ? 'text-green-700' : 'text-red-700'}">${userAnswers[index]}</span></p>
+                        <p class="mt-1">Jawaban Benar: <span class="text-green-700">${q.answer}</span></p>
+                        <p class="mt-1 text-gray-600">${q.explanation}</p>
+                    </div>
+                `;
+            });
+            modalExplanation.innerHTML = explanationHTML;
+            quizModal.classList.remove('hidden');
+            quizModal.classList.add('flex');
+        }
+
+        modalCloseBtn.addEventListener('click', () => {
+            quizModal.classList.add('hidden');
+            quizModal.classList.remove('flex');
+            loadQuiz();
+        });
+
+        // Muat kuis saat halaman pertama kali dibuka
+        document.addEventListener('DOMContentLoaded', loadQuiz);
+
+    </script>
+</body>
+</html>
