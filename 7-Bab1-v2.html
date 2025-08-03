@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pembelajaran IPA Kelas 7 - Bab 1 (Lengkap)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f4f8;
+        }
+        .card {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .btn-primary {
+            background-color: #3b82f6;
+            color: white;
+            font-weight: 600;
+            padding: 12px 24px;
+            border-radius: 8px;
+            transition: background-color 0.2s;
+            animation: pulse 2s infinite;
+        }
+        .btn-primary:hover {
+            background-color: #2563eb;
+            animation: none;
+        }
+        .correct-answer, .quiz-correct {
+            background-color: #dcfce7;
+            border-left: 4px solid #22c55e;
+            padding: 12px;
+            margin-top: 8px;
+            border-radius: 4px;
+        }
+        .incorrect-answer, .quiz-incorrect {
+            background-color: #fee2e2;
+            border-left: 4px solid #ef4444;
+            padding: 12px;
+            margin-top: 8px;
+            border-radius: 4px;
+        }
+        .explanation {
+            font-size: 0.9em;
+            color: #4b5563;
+            margin-top: 8px;
+        }
+        .material-content h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1e40af;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #93c5fd;
+            padding-bottom: 0.5rem;
+        }
+        .material-content h4 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #1d4ed8;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .material-content p {
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+        .material-content ul, .material-content ol {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .material-content ul { list-style-type: disc; }
+        .material-content ol { list-style-type: decimal; }
+        .info-box {
+            background-color: #e0f2fe;
+            border-left: 4px solid #0ea5e9;
+            padding: 1rem;
+            margin: 1.5rem 0;
+            border-radius: 4px;
+        }
+        /* Sidebar Styles */
+        #sidebar {
+            transition: transform 0.3s ease-in-out;
+        }
+        .sidebar-item.active {
+            background-color: #dbeafe;
+            color: #1d4ed8;
+            font-weight: 600;
+        }
+        .sidebar-item .status-icon {
+            width: 20px;
+            text-align: center;
+        }
+        .sidebar-item.completed .status-icon::before {
+            content: '✔';
+            color: #22c55e;
+        }
+        .sidebar-item.locked .status-icon::before {
+            content: '🔒';
+        }
+        .draggable {
+            cursor: move;
+            user-select: none;
+        }
+        .drop-zone {
+            border: 2px dashed #ccc;
+            min-height: 50px;
+        }
+        .drop-zone.hovered {
+            border-color: #3b82f6;
+            background-color: #eff6ff;
+        }
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        .fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.4);
+            }
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 0 0 10px rgba(59, 130, 246, 0);
+            }
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <!-- Sidebar / Hamburger Menu (Initially Hidden) -->
+    <aside id="sidebar" class="fixed top-0 left-0 w-64 h-full bg-white shadow-lg z-30 transform -translate-x-full">
+        <div class="p-4 border-b">
+            <h2 class="text-xl font-bold text-blue-600">Navigasi Bab 1</h2>
+        </div>
+        <nav id="sidebarNav" class="p-2 space-y-1"></nav>
+    </aside>
+
+    <!-- Desktop Sidebar Toggle (Initially Hidden) -->
+    <button id="desktopToggleBtn" title="Sembunyikan/Tampilkan Menu" class="hidden fixed top-4 z-40 bg-white p-2 rounded-full shadow-md hover:bg-gray-100 transition-all duration-300">
+        <svg id="desktopToggleIcon" class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+    </button>
+
+    <!-- Main Content Wrapper -->
+    <div id="main-content-wrapper" class="transition-all duration-300">
+        <!-- Hamburger Button for Mobile (Initially Hidden) -->
+        <button id="hamburgerBtn" class="hidden fixed top-4 left-4 z-20 md:hidden bg-white p-2 rounded-md shadow-md">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+        </button>
+
+        <div class="container mx-auto p-4 md:p-8 max-w-4xl">
+            <header class="relative text-center mb-8">
+                <h1 class="text-3xl md:text-4xl font-bold text-blue-600">Hakikat Ilmu Sains & Metode Ilmiah</h1>
+                <p class="text-lg text-gray-600 mt-2">Kelas 7 SMP - Kurikulum Merdeka</p>
+            </header>
+            <div id="content-area"></div>
+        </div>
+    </div>
+    
+    <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 z-20 hidden"></div>
+
+    <script>
+    // --- STATE MANAGEMENT ---
+    let appState = {
+        currentPage: 'homepage',
+        currentMaterial: null,
+        completedMaterials: [],
+        preTestCompleted: false
+    };
+
+    // --- DOM ELEMENTS ---
+    const contentArea = document.getElementById('content-area');
+    const sidebarNav = document.getElementById('sidebarNav');
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('overlay');
+    const mainContentWrapper = document.getElementById('main-content-wrapper');
+    const desktopToggleBtn = document.getElementById('desktopToggleBtn');
+    const desktopToggleIcon = document.getElementById('desktopToggleIcon');
+
+    // --- DATA ---
+    const funFacts = [
+        "Jantung udang terletak di kepalanya.",
+        "Siput bisa tidur selama tiga tahun.",
+        "Sidik jari koala sangat mirip dengan sidik jari manusia.",
+        "Satu sendok teh bintang neutron memiliki berat sekitar 6 miliar ton.",
+        "Madu adalah satu-satunya makanan yang tidak akan pernah busuk.",
+        "Gurita memiliki tiga jantung.",
+        "Suara tidak dapat merambat di ruang hampa.",
+        "Ada lebih banyak bintang di alam semesta daripada butiran pasir di semua pantai di Bumi."
+    ];
+
+    const subBabData = [
+        { id: "apa-itu-sains", title: "1. Apa Itu Sains?", description: "Di sini kita akan bongkar rahasia 'Sains'. Kamu akan tahu bahwa Sains bukan sekadar hafalan, tapi cara berpikir untuk mengamati, bertanya, dan menemukan jawaban tentang segala hal di alam semesta." },
+        { id: "cabang-sains", title: "2. Cabang Ilmu Sains", description: "Sains itu seperti pohon besar dengan banyak cabang! Kita akan kenalan dengan cabang utamanya: Fisika (ilmu tentang gerak & energi), Kimia (ilmu tentang zat), dan Biologi (ilmu tentang makhluk hidup)." },
+        { id: "lab-ipa", title: "3. Laboratorium IPA", description: "Selamat datang di 'dapur'-nya para ilmuwan! Kamu akan belajar nama dan fungsi alat-alat lab yang keren, serta aturan main agar tetap aman saat melakukan percobaan seru." },
+        { id: "metode-ilmiah", title: "4. Metode Ilmiah", description: "Ini dia 'resep rahasia' para ilmuwan! Kamu akan belajar 6 langkah super sistematis yang dipakai untuk menyelidiki suatu masalah, mulai dari bertanya hingga mendapatkan kesimpulan yang bisa dipercaya." },
+        { id: "pengukuran", title: "5. Pengukuran", description: "Bagaimana ilmuwan mengatakan 'panjang' atau 'berat'? Tentu dengan angka! Di sini kamu akan belajar tentang besaran, satuan (seperti meter & kilogram), dan cara menggunakan alat ukur dengan benar." },
+        { id: "rangkuman", title: "Rangkuman Bab 1", locked: true },
+        { id: "final-test", title: "Final Test", locked: true }
+    ];
+    
+    const preTestQuestions = [
+        { question: "Kegiatan mengamati suatu objek dengan saksama menggunakan pancaindra disebut...", options: { a: "Prediksi", b: "Observasi", c: "Hipotesis", d: "Eksperimen" }, correctAnswer: "b", explanation: "Observasi adalah langkah paling awal dalam metode ilmiah, di mana kita mengamati fenomena atau objek menggunakan indra (melihat, mendengar, dll.) untuk mengumpulkan data awal." },
+        { question: "Ilmu yang mempelajari tentang makhluk hidup dan lingkungannya adalah...", options: { a: "Fisika", b: "Kimia", c: "Biologi", d: "Geologi" }, correctAnswer: "c", explanation: "Biologi berasal dari kata 'bios' (hidup) dan 'logos' (ilmu). Jadi, Biologi adalah ilmu yang khusus mempelajari segala sesuatu tentang makhluk hidup." },
+        { question: "Saat melakukan percobaan di laboratorium, hal pertama yang harus diperhatikan adalah...", options: { a: "Mencatat hasil", b: "Keselamatan kerja", c: "Membersihkan alat", d: "Menyiapkan laporan" }, correctAnswer: "b", explanation: "Keselamatan kerja adalah prioritas utama. Sebelum memulai apapun di lab, kita harus tahu potensi bahaya dan cara melindungi diri, misalnya dengan memakai jas lab dan kacamata pengaman." },
+        { question: "Urutan metode ilmiah yang benar adalah...", options: { a: "Hipotesis -> Observasi -> Eksperimen -> Kesimpulan", b: "Observasi -> Hipotesis -> Eksperimen -> Kesimpulan", c: "Eksperimen -> Observasi -> Hipotesis -> Kesimpulan", d: "Observasi -> Kesimpulan -> Eksperimen -> Hipotesis" }, correctAnswer: "b", explanation: "Metode ilmiah dimulai dari mengamati (Observasi), membuat dugaan (Hipotesis), menguji dugaan (Eksperimen), dan diakhiri dengan menarik simpulan (Kesimpulan)." },
+        { question: "Dalam sebuah eksperimen menanam kacang hijau, jenis pupuk yang berbeda-beda adalah contoh dari...", options: { a: "Variabel kontrol", b: "Variabel terikat", c: "Variabel bebas", d: "Kesimpulan" }, correctAnswer: "c", explanation: "Variabel bebas adalah faktor yang sengaja diubah atau dibedakan oleh peneliti untuk melihat pengaruhnya. Dalam kasus ini, peneliti sengaja menggunakan jenis pupuk yang berbeda." }
+    ];
+
+    // --- TEMPLATES (HTML Content as Functions) ---
+
+    function getHomepageHTML() {
+        const randomFact = funFacts[Math.floor(Math.random() * funFacts.length)];
+        return `
+        <main id="homepage" class="card p-6 md:p-8 fade-in">
+             <div class="flex flex-col md:flex-row items-center gap-6 text-center md:text-left">
+                <div class="w-32 h-32 md:w-48 md:h-48 flex-shrink-0">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="text-blue-500">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                        <path d="M12 12m-3 0a3 3 0 1 0 6 0 3 3 0 1 0-6 0"/>
+                        <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+                        <path d="M12 6a6 6 0 0 1 6 6"/>
+                    </svg>
+                </div>
+                <div>
+                    <h2 class="text-2xl font-bold mb-2">👋 Selamat Datang, Saintis Muda!</h2>
+                    <p class="text-gray-700 mb-4">Kamu akan memulai petualangan sains pertamamu! Bab ini adalah gerbang utama untuk memahami dunia di sekitarmu dengan cara yang keren dan sistematis, sama seperti para ilmuwan hebat!</p>
+                </div>
+            </div>
+            
+            <div class="mt-8 bg-amber-100 border-l-4 border-amber-500 text-amber-800 p-4 rounded-r-lg">
+                <p class="font-bold">💡 Tahukah Kamu?</p>
+                <p id="funFact">${randomFact}</p>
+            </div>
+
+            <div class="mt-8 text-left bg-blue-50 p-6 rounded-lg">
+                <h3 class="text-xl font-semibold mb-4">Peta Belajarmu di Bab 1:</h3>
+                <p class="text-gray-600 mb-6">Klik setiap bagian untuk melihat apa saja hal menarik yang akan kamu temukan!</p>
+                <div id="homeAccordion" class="space-y-3"></div>
+            </div>
+
+            <button onclick="navigateTo('pre-test')" class="btn-primary mt-8 w-full md:w-auto mx-auto block">
+                Siap? Ayo Mulai Belajar!
+            </button>
+        </main>`;
+    }
+
+    function getPreTestHTML() {
+        let questionsHTML = preTestQuestions.map((q, index) => `
+            <div class="mb-6 border-b pb-4">
+                <p class="font-semibold mb-3">${index + 1}. ${q.question}</p>
+                <div class="space-y-2">
+                    ${Object.entries(q.options).map(([key, value]) => `
+                        <label class="flex items-center p-2 rounded-lg hover:bg-gray-100 cursor-pointer">
+                            <input type="radio" name="q${index}" value="${key}" class="mr-3" required>
+                            <span>${value}</span>
+                        </label>
+                    `).join('')}
+                </div>
+            </div>
+        `).join('');
+
+        return `
+        <section class="card p-6 md:p-8 fade-in">
+            <h3 class="text-2xl font-bold text-center mb-4">Pre-Test: Cek Ombak Dulu!</h3>
+            <p class="text-center text-gray-600 mb-6">Jawab cepat 5 soal ini untuk lihat seberapa jauh kamu sudah tahu. Santai saja, ya!</p>
+            <form id="preTestForm">
+                ${questionsHTML}
+                <button type="submit" class="btn-primary w-full mt-4">Selesai & Lihat Hasil</button>
+            </form>
+        </section>`;
+    }
+
+    function getResultsHTML(score, feedbackHTML) {
+        return `
+        <section class="card p-6 md:p-8 fade-in">
+            <h3 class="text-2xl font-bold text-center mb-2">Hasil Pre-Test Kamu</h3>
+            <p class="text-center text-3xl font-bold text-blue-600 my-4">${score}</p>
+            <p class="text-center text-gray-600 mb-6">Yuk, lihat pembahasan setiap soal untuk lebih paham!</p>
+            <div class="space-y-4">${feedbackHTML}</div>
+            <div class="text-center mt-8">
+                <button onclick="startMainLearning()" class="btn-primary w-full md:w-auto">
+                    Lanjut ke Materi Pertama
+                </button>
+            </div>
+        </section>`;
+    }
+    
+    function getMaterialHTML(subBabId) {
+        // All material content is now complete
+        switch (subBabId) {
+            case 'apa-itu-sains': return `
+                <div class="card p-6 md:p-8 material-content">
+                    <div class="flex items-center mb-6"><span class="text-3xl font-bold text-white bg-blue-500 rounded-full flex items-center justify-center w-12 h-12 mr-4">1</span><h2 class="text-3xl font-bold text-gray-800">Apa Itu Sains?</h2></div>
+                    <h3>🌟 Sains: Lebih dari Sekadar Hafalan!</h3>
+                    <p>Pernahkah kamu bertanya, "Kenapa pelangi muncul setelah hujan?" atau "Kenapa HP bisa menyala?". Rasa penasaran itulah awal dari sains! Jadi, <strong>Sains</strong> (atau IPA) bukanlah kumpulan fakta di buku yang harus dihafal, melainkan <strong>cara sistematis untuk mempelajari segala sesuatu tentang alam semesta</strong>, mulai dari planet di angkasa sampai makhluk super kecil yang tak terlihat.</p>
+                    <div class="info-box"><p class="font-semibold">Intinya, Sains adalah:</p><ul class="list-none"><li><strong>Produk:</strong> Semua pengetahuan yang kita miliki (fakta, konsep, teori, hukum).</li><li><strong>Proses:</strong> Cara mendapatkan pengetahuan itu (keterampilan proses/metode ilmiah).</li><li><strong>Sikap:</strong> Cara berpikir seorang ilmuwan (rasa ingin tahu, jujur, teliti).</li></ul></div>
+                    <h3>🔬 Keterampilan Proses Sains: Jadi Detektif Alam!</h3>
+                    <p>Untuk menjadi seorang ilmuwan, kamu perlu punya "alat" khusus. Bukan palu atau obeng, tapi keterampilan berpikir yang disebut <strong>Keterampilan Proses Sains</strong>.</p>
+                    <ul><li><strong>Mengamati (Observasi):</strong> Menggunakan semua pancaindra untuk mengumpulkan informasi.</li><li><strong>Menginferensi:</strong> Membuat penjelasan awal berdasarkan pengamatan.</li><li><strong>Mengomunikasikan:</strong> Menyampaikan hasil temuanmu kepada orang lain.</li></ul>
+                    <div class="my-8"><h4 class="text-xl font-bold text-center mb-4">Tonton Video Ini Untuk Lebih Paham!</h4><div class="aspect-w-16 aspect-h-9"><iframe class="w-full h-80 rounded-lg shadow-lg" src="https://www.youtube.com/embed/x4dPya-ynyY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div></div>
+                    <div class="bg-gray-100 p-6 rounded-lg my-8"><h4 class="text-xl font-bold text-center mb-4">⚡ Kuis Cepat: Cek Fakta! ⚡</h4><p class="text-center mb-4">Seorang siswa mencium bau harum dari bunga mawar. Keterampilan proses apa yang sedang ia gunakan?</p><div id="miniQuiz" class="flex flex-col md:flex-row justify-center gap-4"><button class="btn-quiz p-3 rounded-lg border-2 border-blue-400 hover:bg-blue-100" data-answer="inferensi">Menginferensi</button><button class="btn-quiz p-3 rounded-lg border-2 border-blue-400 hover:bg-blue-100" data-answer="observasi">Mengamati</button><button class="btn-quiz p-3 rounded-lg border-2 border-blue-400 hover:bg-blue-100" data-answer="komunikasi">Mengomunikasikan</button></div><div id="quizFeedback" class="mt-4 text-center font-semibold"></div></div>
+                    <h3>🧑‍🔬 Sikap Ilmiah: Modal Utama Seorang Ilmuwan</h3>
+                    <p>Selain keterampilan, seorang ilmuwan juga harus punya sikap atau karakter yang baik.</p>
+                    <ul><li><strong>Rasa Ingin Tahu:</strong> Selalu bertanya "mengapa" dan "bagaimana".</li><li><strong>Jujur & Objektif:</strong> Menyampaikan data apa adanya.</li><li><strong>Teliti & Tekun:</strong> Sabar dan tidak mudah menyerah.</li><li><strong>Terbuka:</strong> Mau menerima kritik dan saran.</li></ul>
+                    <div class="mt-10"><h3 class="text-center">Post-Test: Apa Itu Sains?</h3><p class="text-center text-gray-600 mb-6">Yuk, uji pemahamanmu tentang materi ini!</p><form id="postTest-apa-itu-sains"></form></div>
+                </div>`;
+            case 'cabang-sains': return `
+                <div class="card p-6 md:p-8 material-content">
+                    <div class="flex items-center mb-6"><span class="text-3xl font-bold text-white bg-blue-500 rounded-full flex items-center justify-center w-12 h-12 mr-4">2</span><h2 class="text-3xl font-bold text-gray-800">Cabang-cabang Ilmu Sains</h2></div>
+                    <h3>🌳 Pohon Ilmu Pengetahuan</h3>
+                    <p>Sains itu sangat luas, seperti pohon raksasa dengan banyak cabang. Setiap cabang fokus mempelajari hal yang berbeda. Tiga cabang utama yang akan sering kamu temui di SMP adalah:</p>
+                    <div class="grid md:grid-cols-3 gap-6 my-8">
+                        <div class="border p-4 rounded-lg bg-red-50"><h4 class="font-bold text-xl text-red-700">FISIKA</h4><p>Mempelajari gejala alam tak hidup (abiotik) dari aspek materi dan energi. Contoh: gravitasi, listrik, cahaya.</p></div>
+                        <div class="border p-4 rounded-lg bg-green-50"><h4 class="font-bold text-xl text-green-700">BIOLOGI</h4><p>Mempelajari makhluk hidup (biotik). Contoh: jenis hewan, cara kerja tubuh manusia, ekologi.</p></div>
+                        <div class="border p-4 rounded-lg bg-yellow-50"><h4 class="font-bold text-xl text-yellow-700">KIMIA</h4><p>Mempelajari susunan, sifat, dan perubahan materi. Contoh: perkaratan, sabun, zat makanan.</p></div>
+                    </div>
+                    <div class="info-box"><p class="font-semibold">Ada juga cabang lain yang merupakan gabungan, seperti:</p><ul><li><strong>Biokimia:</strong> Proses kimia dalam tubuh makhluk hidup.</li><li><strong>Geofisika:</strong> Mempelajari bumi menggunakan prinsip fisika.</li><li><strong>Astronomi:</strong> Mempelajari benda-benda langit.</li></ul></div>
+                    <div class="bg-gray-100 p-6 rounded-lg my-8"><h4 class="text-xl font-bold text-center mb-4">🕵️‍♂️ Kuis Cepat: Tebak Ilmuwan! 🕵️‍♂️</h4><p class="text-center mb-4">Seorang ilmuwan sedang meneliti bagaimana letusan gunung berapi dapat memengaruhi iklim global. Ia paling mungkin adalah seorang ahli...</p><div id="miniQuiz" class="flex flex-col md:flex-row justify-center gap-4"><button class="btn-quiz p-3 rounded-lg border-2 border-blue-400 hover:bg-blue-100" data-answer="biologi">Biologi</button><button class="btn-quiz p-3 rounded-lg border-2 border-blue-400 hover:bg-blue-100" data-answer="kimia">Kimia</button><button class="btn-quiz p-3 rounded-lg border-2 border-blue-400 hover:bg-blue-100" data-answer="geofisika">Geofisika</button></div><div id="quizFeedback" class="mt-4 text-center font-semibold"></div></div>
+                    <div class="mt-10"><h3 class="text-center">Post-Test: Cabang Ilmu Sains</h3><form id="postTest-cabang-sains"></form></div>
+                </div>`;
+            case 'lab-ipa': return `
+                <div class="card p-6 md:p-8 material-content">
+                    <div class="flex items-center mb-6"><span class="text-3xl font-bold text-white bg-blue-500 rounded-full flex items-center justify-center w-12 h-12 mr-4">3</span><h2 class="text-3xl font-bold text-gray-800">Laboratorium IPA</h2></div>
+                    <h3>🔬 Selamat Datang di "Dapur" Ilmuwan!</h3>
+                    <p>Laboratorium (lab) adalah ruangan khusus yang dirancang untuk melakukan percobaan atau penelitian ilmiah. Di dalamnya, banyak alat dan bahan yang memerlukan perlakuan khusus. Karena itu, keselamatan adalah nomor satu!</p>
+                    <h4>Aturan Keselamatan Utama di Lab</h4>
+                    <ul>
+                        <li><strong>Wajib menggunakan Alat Pelindung Diri (APD):</strong> Jas lab, kacamata pengaman (goggles), dan sepatu tertutup.</li>
+                        <li><strong>Dilarang makan, minum, dan bercanda</strong> di dalam laboratorium.</li>
+                        <li>Ikat rambut yang panjang dan jangan memakai perhiasan yang bisa tersangkut.</li>
+                        <li>Selalu baca label pada botol bahan kimia sebelum menggunakannya.</li>
+                        <li>Jika terjadi kecelakaan (terkena bahan kimia atau api), segera lapor pada guru.</li>
+                    </ul>
+                    <div class="my-8"><h4 class="text-xl font-bold text-center mb-4">Kenali Simbol Berbahaya!</h4><div class="aspect-w-16 aspect-h-9"><iframe class="w-full h-80 rounded-lg shadow-lg" src="https://www.youtube.com/embed/CdPEvKrTYsE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div></div>
+                    <div class="bg-gray-100 p-6 rounded-lg my-8">
+                        <h4 class="text-xl font-bold text-center mb-4">🎮 Game: Pasangkan Alat Lab! 🎮</h4>
+                        <p class="text-center mb-4">Seret nama alat ke kotak yang sesuai dengan fungsinya!</p>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div><h5 class="font-bold text-center mb-2">Alat</h5><div id="alat-container" class="p-2 space-y-2 bg-gray-200 rounded-lg min-h-[150px]"></div></div>
+                            <div><h5 class="font-bold text-center mb-2">Fungsi</h5><div id="fungsi-container" class="space-y-2"></div></div>
+                        </div>
+                        <div id="gameFeedback" class="mt-4 text-center font-bold"></div>
+                    </div>
+                    <div class="mt-10"><h3 class="text-center">Post-Test: Laboratorium IPA</h3><form id="postTest-lab-ipa"></form></div>
+                </div>`;
+            case 'metode-ilmiah': return `
+                <div class="card p-6 md:p-8 material-content">
+                    <div class="flex items-center mb-6"><span class="text-3xl font-bold text-white bg-blue-500 rounded-full flex items-center justify-center w-12 h-12 mr-4">4</span><h2 class="text-3xl font-bold text-gray-800">Metode Ilmiah</h2></div>
+                    <h3>📜 Resep Rahasia Para Ilmuwan</h3>
+                    <p>Metode ilmiah adalah serangkaian langkah sistematis yang digunakan para ilmuwan untuk memecahkan masalah atau menjawab pertanyaan. Ini seperti resep memasak, harus dilakukan secara berurutan agar hasilnya valid dan bisa dipercaya.</p>
+                    <h4>Langkah-langkah Metode Ilmiah</h4>
+                    <ol>
+                        <li><strong>Observasi:</strong> Mengamati suatu fenomena atau masalah.</li>
+                        <li><strong>Merumuskan Masalah:</strong> Membuat pertanyaan spesifik tentang hasil observasi.</li>
+                        <li><strong>Mengumpulkan Informasi:</strong> Mencari data dari buku, jurnal, atau internet.</li>
+                        <li><strong>Membuat Hipotesis:</strong> Membuat dugaan atau jawaban sementara yang logis.</li>
+                        <li><strong>Melakukan Eksperimen:</strong> Menguji hipotesis dengan percobaan terkontrol.</li>
+                        <li><strong>Menganalisis Data:</strong> Mengolah dan menafsirkan data hasil eksperimen.</li>
+                        <li><strong>Menarik Kesimpulan:</strong> Menentukan apakah hipotesis diterima atau ditolak.</li>
+                    </ol>
+                    <div class="info-box"><p class="font-semibold">Dalam Eksperimen, ada 3 jenis variabel:</p><ul><li><strong>Variabel Bebas:</strong> Faktor yang sengaja diubah oleh peneliti.</li><li><strong>Variabel Terikat:</strong> Faktor yang diukur sebagai hasil dari perubahan variabel bebas.</li><li><strong>Variabel Kontrol:</strong> Faktor yang dijaga tetap sama agar tidak memengaruhi hasil.</li></ul></div>
+                    <div class="bg-gray-100 p-6 rounded-lg my-8"><h4 class="text-xl font-bold text-center mb-4">🧠 Kuis: Variabel Apa Ini? 🧠</h4><p class="text-center mb-4">Dalam percobaan pengaruh air terhadap pertumbuhan tanaman, "jumlah air yang disiramkan setiap hari" adalah variabel...</p><div id="miniQuiz" class="flex flex-col md:flex-row justify-center gap-4"><button class="btn-quiz p-3 rounded-lg border-2 border-blue-400 hover:bg-blue-100" data-answer="terikat">Terikat</button><button class="btn-quiz p-3 rounded-lg border-2 border-blue-400 hover:bg-blue-100" data-answer="bebas">Bebas</button><button class="btn-quiz p-3 rounded-lg border-2 border-blue-400 hover:bg-blue-100" data-answer="kontrol">Kontrol</button></div><div id="quizFeedback" class="mt-4 text-center font-semibold"></div></div>
+                    <div class="mt-10"><h3 class="text-center">Post-Test: Metode Ilmiah</h3><form id="postTest-metode-ilmiah"></form></div>
+                </div>`;
+            case 'pengukuran': return `
+                <div class="card p-6 md:p-8 material-content">
+                    <div class="flex items-center mb-6"><span class="text-3xl font-bold text-white bg-blue-500 rounded-full flex items-center justify-center w-12 h-12 mr-4">5</span><h2 class="text-3xl font-bold text-gray-800">Pengukuran</h2></div>
+                    <h3>📏 Mengukur Dunia di Sekitar Kita</h3>
+                    <p>Pengukuran adalah kegiatan membandingkan suatu besaran dengan besaran lain yang sejenis yang ditetapkan sebagai satuan. Dalam sains, pengukuran harus akurat dan menggunakan satuan yang disepakati secara internasional.</p>
+                    <h4>Besaran dan Satuan</h4>
+                    <ul>
+                        <li><strong>Besaran:</strong> Segala sesuatu yang dapat diukur dan dinyatakan dengan angka. Contoh: panjang, massa, waktu, suhu.</li>
+                        <li><strong>Satuan:</strong> Pembanding yang digunakan dalam pengukuran. Contoh: meter, kilogram, detik, Celcius.</li>
+                    </ul>
+                    <p>Kita menggunakan <strong>Sistem Satuan Internasional (SI)</strong> agar hasil pengukuran di seluruh dunia bisa sama dan mudah dipahami.</p>
+                    <div class="info-box"><p class="font-semibold">Tujuh Besaran Pokok dalam SI:</p>
+                        <ol>
+                            <li>Panjang (meter, m)</li>
+                            <li>Massa (kilogram, kg)</li>
+                            <li>Waktu (sekon/detik, s)</li>
+                            <li>Suhu (Kelvin, K)</li>
+                            <li>Kuat Arus Listrik (Ampere, A)</li>
+                            <li>Intensitas Cahaya (Candela, cd)</li>
+                            <li>Jumlah Zat (mol)</li>
+                        </ol>
+                        <p class="mt-2">Besaran lain selain 7 di atas disebut <strong>Besaran Turunan</strong> (contoh: Luas (m²), Kecepatan (m/s)).</p>
+                    </div>
+                    <div class="bg-gray-100 p-6 rounded-lg my-8"><h4 class="text-xl font-bold text-center mb-4">🎯 Kuis Cepat: Baca Gelas Ukur! 🎯</h4><p class="text-center mb-4">Perhatikan gambar (imajiner) sebuah gelas ukur. Permukaan air menunjukkan skala 70 ml. Kemudian, sebuah batu dimasukkan dan permukaan air naik ke skala 95 ml. Berapakah volume batu tersebut?</p><div id="miniQuiz" class="flex flex-col md:flex-row justify-center gap-4"><button class="btn-quiz p-3 rounded-lg border-2 border-blue-400 hover:bg-blue-100" data-answer="95">95 ml</button><button class="btn-quiz p-3 rounded-lg border-2 border-blue-400 hover:bg-blue-100" data-answer="70">70 ml</button><button class="btn-quiz p-3 rounded-lg border-2 border-blue-400 hover:bg-blue-100" data-answer="25">25 ml</button></div><div id="quizFeedback" class="mt-4 text-center font-semibold"></div></div>
+                    <div class="mt-10"><h3 class="text-center">Post-Test: Pengukuran</h3><form id="postTest-pengukuran"></form></div>
+                </div>`;
+            default: return `<p>Materi tidak ditemukan.</p>`;
+        }
+    }
+    
+    function getRangkumanHTML() {
+        return `
+        <div class="card p-6 md:p-8 material-content">
+            <h2 class="text-3xl font-bold text-gray-800 text-center">Rangkuman Bab 1</h2>
+            <p class="text-center text-gray-600 mb-8">Selamat! Kamu telah menyelesaikan semua materi. Berikut adalah poin-poin penting yang sudah kamu pelajari.</p>
+            <h4>1. Hakikat Ilmu Sains</h4><ul><li>Sains adalah ilmu pengetahuan sistematis tentang alam semesta, diperoleh melalui proses observasi dan eksperimen.</li><li>Sains meliputi <strong>Produk</strong> (fakta, konsep, hukum, teori), <strong>Proses</strong> (keterampilan proses), dan <strong>Sikap</strong> (rasa ingin tahu, jujur, teliti).</li><li>Keterampilan proses dasar meliputi <strong>mengamati, menginferensi,</strong> dan <strong>mengomunikasikan.</strong></li></ul>
+            <h4>2. Cabang-Cabang Ilmu Sains</h4><ul><li><strong>Fisika:</strong> Mempelajari materi, energi, gerak, gaya.</li><li><strong>Kimia:</strong> Mempelajari susunan, sifat, dan perubahan materi.</li><li><strong>Biologi:</strong> Mempelajari makhluk hidup.</li></ul>
+            <h4>3. Laboratorium IPA</h4><ul><li>Keselamatan kerja adalah prioritas utama (memakai APD).</li><li>Kenali alat-alat lab seperti gelas ukur (mengukur volume), termometer (mengukur suhu), mikroskop (melihat benda kecil).</li></ul>
+            <h4>4. Metode Ilmiah</h4><p>Langkah-langkah sistematis: Observasi → Rumusan Masalah → Kumpulkan Informasi → Hipotesis → Eksperimen → Analisis Data → Kesimpulan.</p>
+            <h4>5. Pengukuran</h4><ul><li><strong>Besaran:</strong> Sesuatu yang dapat diukur (panjang, massa, waktu).</li><li><strong>Satuan:</strong> Pembanding dalam pengukuran (meter, kilogram, detik).</li><li>Satuan baku (SI) digunakan secara internasional.</li></ul>
+            <div class="text-center mt-8"><button onclick="navigateTo('final-test')" class="btn-primary w-full md:w-auto">Siap untuk Ujian Akhir?</button></div>
+        </div>`;
+    }
+
+    function getFinalTestHTML() {
+        return `
+        <div class="card p-6 md:p-8 material-content">
+            <h2 class="text-3xl font-bold text-gray-800 text-center">Final Test: Uji Kemampuan Analisismu!</h2>
+            <p class="text-center text-gray-600 mb-8">Jawablah pertanyaan studi kasus berikut dalam bentuk esai singkat. Gunakan konsep yang telah kamu pelajari!</p>
+            <div class="space-y-8">
+                <div><h3 class="text-xl font-bold text-green-600">Tingkat Mudah</h3><div class="mt-4 space-y-6"><p><strong>1.</strong> Jelaskan perbedaan utama antara observasi dan inferensi! Berikan masing-masing satu contoh.</p><p><strong>2.</strong> Sebutkan 3 aturan keselamatan yang paling penting saat berada di laboratorium IPA!</p><p><strong>3.</strong> Apa yang dimaksud dengan besaran pokok dan besaran turunan? Berikan contohnya!</p><p><strong>4.</strong> Urutkan langkah-langkah metode ilmiah dari awal hingga akhir!</p></div></div>
+                <div><h3 class="text-xl font-bold text-yellow-600">Tingkat Sedang</h3><div class="mt-4 space-y-6"><p><strong>5.</strong> Budi melihat tanaman di pot A lebih subur daripada tanaman di pot B. Buatlah satu rumusan masalah dan satu hipotesis yang mungkin untuk observasi Budi!</p><p><strong>6.</strong> Kamu ingin mengukur volume sebuah batu yang bentuknya tidak beraturan menggunakan gelas ukur dan air. Jelaskan langkah-langkah yang akan kamu lakukan!</p><p><strong>7.</strong> Mengapa seorang ilmuwan harus memiliki sikap jujur dan objektif? Apa yang akan terjadi jika data sebuah penelitian dimanipulasi?</p></div></div>
+                <div><h3 class="text-xl font-bold text-red-600">Tingkat Sulit</h3><div class="mt-4 space-y-6"><p><strong>8.</strong> Rancanglah sebuah eksperimen sederhana untuk menguji hipotesis: "Intensitas cahaya memengaruhi kecepatan fotosintesis pada tanaman air (Hydrilla)". Tentukan variabel bebas, variabel terikat, dan 3 variabel kontrol dalam rancanganmu!</p><p><strong>9.</strong> Jelaskan bagaimana ilmu Fisika, Kimia, dan Biologi saling berkaitan dalam fenomena "perkaratan pada pagar besi"!</p><p><strong>10.</strong> Bayangkan kamu menemukan spesies serangga baru. Langkah-langkah ilmiah apa saja yang akan kamu lakukan untuk mempelajari dan mengomunikasikan temuanmu kepada dunia?</p></div></div>
+            </div>
+        </div>`;
+    }
+
+    // --- RENDER & NAVIGATION LOGIC ---
+
+    function renderSidebar() {
+        sidebarNav.innerHTML = subBabData.map(item => {
+            const isCompleted = appState.completedMaterials.includes(item.id);
+            const isActive = appState.currentMaterial === item.id || (appState.currentPage === item.id);
+            const isLocked = item.locked && appState.completedMaterials.length < 5;
+
+            return `
+            <a href="#" class="sidebar-item flex items-center justify-between p-3 rounded-md transition-colors 
+                ${isActive ? 'active' : 'hover:bg-gray-100'} 
+                ${isLocked ? 'locked text-gray-400 cursor-not-allowed' : ''}" 
+                data-id="${item.id}" 
+                ${isLocked ? 'aria-disabled="true"' : ''}>
+                <span>${item.title}</span>
+                <span class="status-icon text-lg font-bold">${isCompleted ? '✔' : (isLocked ? '🔒' : '')}</span>
+            </a>`;
+        }).join('');
+
+        sidebarNav.querySelectorAll('.sidebar-item').forEach(item => {
+            if (!item.classList.contains('locked')) {
+                item.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    navigateTo(item.dataset.id);
+                    if (window.innerWidth < 768) {
+                        sidebar.classList.add('-translate-x-full');
+                        overlay.classList.add('hidden');
+                    }
+                });
+            }
+        });
+    }
+
+    function navigateTo(pageId) {
+        const materialInfo = subBabData.find(item => item.id === pageId);
+        if (materialInfo && !materialInfo.locked) {
+            if(materialInfo.id === 'rangkuman' || materialInfo.id === 'final-test') {
+                appState.currentPage = materialInfo.id;
+                appState.currentMaterial = null;
+            } else {
+                appState.currentPage = 'material';
+                appState.currentMaterial = pageId;
+            }
+        } else if (pageId === 'homepage' || pageId === 'pre-test') {
+             appState.currentPage = pageId;
+             appState.currentMaterial = null;
+        }
+        
+        renderContent();
+        renderSidebar();
+    }
+
+    function renderContent() {
+        window.scrollTo(0, 0);
+        const { currentPage, currentMaterial } = appState;
+
+        if (currentPage === 'homepage') contentArea.innerHTML = getHomepageHTML();
+        else if (currentPage === 'pre-test') contentArea.innerHTML = getPreTestHTML();
+        else if (currentPage === 'material') contentArea.innerHTML = getMaterialHTML(currentMaterial);
+        else if (currentPage === 'rangkuman') contentArea.innerHTML = getRangkumanHTML();
+        else if (currentPage === 'final-test') contentArea.innerHTML = getFinalTestHTML();
+        
+        attachEventListeners();
+    }
+    
+    function attachEventListeners() {
+        const { currentPage, currentMaterial } = appState;
+
+        if (currentPage === 'homepage') {
+            const accordionContainer = document.getElementById('homeAccordion');
+            if (accordionContainer) {
+                accordionContainer.innerHTML = subBabData
+                    .filter(item => !item.locked)
+                    .map(item => `
+                    <div class="border border-gray-200 rounded-lg overflow-hidden">
+                        <button class="accordion-header w-full text-left p-4 bg-white hover:bg-gray-50 focus:outline-none transition">
+                            <div class="flex justify-between items-center">
+                                <span class="font-semibold text-blue-700">${item.title}</span>
+                                <svg class="w-5 h-5 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </div>
+                        </button>
+                        <div class="accordion-content bg-white px-4 pb-4">
+                            <p class="text-gray-600 text-sm">${item.description}</p>
+                        </div>
+                    </div>
+                `).join('');
+
+                accordionContainer.addEventListener('click', (event) => {
+                    const header = event.target.closest('.accordion-header');
+                    if (!header) return;
+                    const content = header.nextElementSibling;
+                    const icon = header.querySelector('svg');
+                    if (content.style.maxHeight) {
+                        content.style.maxHeight = null;
+                        icon.classList.remove('rotate-180');
+                    } else {
+                        // Close other accordions
+                        accordionContainer.querySelectorAll('.accordion-content').forEach(c => c.style.maxHeight = null);
+                        accordionContainer.querySelectorAll('.accordion-header svg').forEach(i => i.classList.remove('rotate-180'));
+                        // Open this one
+                        content.style.maxHeight = content.scrollHeight + "px";
+                        icon.classList.add('rotate-180');
+                    }
+                });
+            }
+        } else if (currentPage === 'pre-test') {
+            const form = document.getElementById('preTestForm');
+            if(form) form.addEventListener('submit', handlePreTestSubmit);
+        } else if (currentPage === 'material') {
+            attachMaterialEventListeners(currentMaterial);
+        }
+    }
+
+    function handlePreTestSubmit(event) {
+        event.preventDefault();
+        const formData = new FormData(event.target);
+        let score = 0;
+        let feedbackHTML = '';
+
+        preTestQuestions.forEach((q, index) => {
+            const userAnswer = formData.get(`q${index}`);
+            const isCorrect = userAnswer === q.correctAnswer;
+            if (isCorrect) score++;
+            feedbackHTML += `
+                <div class="border p-4 rounded-lg ${isCorrect ? 'bg-green-50' : 'bg-red-50'}">
+                    <p class="font-semibold">${index + 1}. ${q.question}</p>
+                    <p class="text-sm mt-2">Jawaban kamu: <span class="font-bold">${userAnswer ? q.options[userAnswer] : 'Tidak dijawab'}</span></p>
+                    <div class="${isCorrect ? 'correct-answer' : 'incorrect-answer'}">
+                        <p class="font-bold">Jawaban yang benar: ${q.options[q.correctAnswer]}</p>
+                        <p class="explanation">${q.explanation}</p>
+                    </div>
+                </div>`;
+        });
+        
+        const finalScore = Math.round((score / preTestQuestions.length) * 100);
+        contentArea.innerHTML = getResultsHTML(finalScore, feedbackHTML);
+        appState.preTestCompleted = true;
+    }
+
+    function startMainLearning() {
+        // Show all navigation elements
+        hamburgerBtn.classList.remove('hidden');
+        desktopToggleBtn.classList.remove('hidden');
+        
+        // Show sidebar by default on desktop
+        sidebar.classList.remove('-translate-x-full');
+        mainContentWrapper.classList.add('md:ml-64');
+        desktopToggleBtn.classList.add('left-68'); // 17rem = 272px
+        desktopToggleBtn.classList.remove('left-4');
+        desktopToggleIcon.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>`;
+        
+        navigateTo('apa-itu-sains');
+    }
+
+    function attachMaterialEventListeners(subBabId) {
+        const handlePostTest = (formId, questions) => {
+            const form = document.getElementById(formId);
+            if(form) {
+                const newForm = form.cloneNode(true);
+                form.parentNode.replaceChild(newForm, form);
+
+                newForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    let allAnswered = true;
+                    questions.forEach((q, index) => {
+                        const userAnswer = newForm.querySelector(`input[name="postq${index}"]:checked`)?.value;
+                        if (!userAnswer) allAnswered = false;
+                    });
+                    
+                    const existingAlert = newForm.querySelector('.alert-message');
+                    if(existingAlert) existingAlert.remove();
+
+                    if(!allAnswered) {
+                        const alertDiv = document.createElement('div');
+                        alertDiv.className = 'alert-message text-red-700 bg-red-100 p-3 rounded-lg mt-4 text-center';
+                        alertDiv.textContent = 'Harap jawab semua pertanyaan sebelum memeriksa jawaban!';
+                        newForm.appendChild(alertDiv);
+                        return;
+                    }
+
+                    questions.forEach((q, index) => {
+                        const userAnswer = newForm.querySelector(`input[name="postq${index}"]:checked`).value;
+                        const feedbackEl = document.getElementById(`feedback-postq${index}`);
+                        const isCorrect = userAnswer === q.correctAnswer;
+                        feedbackEl.innerHTML = `
+                            <div class="${isCorrect ? 'correct-answer' : 'incorrect-answer'}">
+                                <p class="font-bold">Jawaban yang benar: ${q.options[q.correctAnswer]}</p>
+                                <p class="explanation">${q.explanation}</p>
+                            </div>`;
+                        feedbackEl.classList.remove('hidden');
+                    });
+
+                    if (!appState.completedMaterials.includes(subBabId)) {
+                        appState.completedMaterials.push(subBabId);
+                        if (appState.completedMaterials.length >= 5) {
+                            subBabData.find(item => item.id === 'rangkuman').locked = false;
+                            subBabData.find(item => item.id === 'final-test').locked = false;
+                        }
+                        renderSidebar();
+                    }
+                });
+            }
+        };
+        
+        const renderPostTestForm = (formId, questions) => {
+             const form = document.getElementById(formId);
+             if(!form) return;
+             form.innerHTML = questions.map((q, index) => `
+                <div class="mb-6 border-t pt-4">
+                    <p class="font-semibold mb-3">${index + 1}. ${q.question}</p>
+                    <div class="space-y-2">
+                        ${Object.entries(q.options).map(([key, value]) => `
+                            <label class="flex items-center p-2 rounded-lg hover:bg-gray-100 cursor-pointer">
+                                <input type="radio" name="postq${index}" value="${key}" class="mr-3" required>
+                                <span>${value}</span>
+                            </label>
+                        `).join('')}
+                    </div>
+                    <div id="feedback-postq${index}" class="hidden mt-2"></div>
+                </div>
+            `).join('') + `<button type="submit" class="btn-primary w-full mt-4">Cek Jawaban</button>`;
+        }
+
+        const handleMiniQuiz = (correctAnswer, correctMsg, incorrectMsg) => {
+            const quizContainer = document.getElementById('miniQuiz');
+            if(quizContainer) {
+                quizContainer.addEventListener('click', (e) => {
+                    if (e.target.classList.contains('btn-quiz')) {
+                        const answer = e.target.getAttribute('data-answer');
+                        const feedbackEl = document.getElementById('quizFeedback');
+                        if (answer === correctAnswer) {
+                            feedbackEl.innerHTML = `<p class="text-green-600">${correctMsg}</p>`;
+                            feedbackEl.className = 'quiz-correct';
+                        } else {
+                            feedbackEl.innerHTML = `<p class="text-red-600">${incorrectMsg}</p>`;
+                             feedbackEl.className = 'quiz-incorrect';
+                        }
+                    }
+                });
+            }
+        };
+
+        if (subBabId === 'apa-itu-sains') {
+            const questions = [{ question: "Berikut ini yang merupakan contoh dari 'produk' sains adalah...", options: { a: "Melakukan eksperimen", b: "Hukum gravitasi Newton", c: "Rasa ingin tahu", d: "Mencatat data" }, correctAnswer: "b", explanation: "Hukum gravitasi adalah sebuah teori/pengetahuan yang merupakan hasil dari proses sains." }, { question: "Ketika kamu melihat awan menjadi gelap dan menyimpulkan 'sepertinya akan hujan', kamu sedang melakukan keterampilan...", options: { a: "Observasi", b: "Inferensi", c: "Komunikasi", d: "Eksperimen" }, correctAnswer: "b", explanation: "Kamu mengamati (awan gelap) lalu membuat kesimpulan sementara (akan hujan). Inilah yang disebut inferensi." }, { question: "Seorang ilmuwan menemukan bahwa hasil penelitiannya gagal. Jika ia memiliki sikap ilmiah, ia akan...", options: { a: "Mengubah data agar terlihat berhasil", b: "Menyalahkan alat-alatnya", c: "Melaporkan hasil apa adanya dan mencari penyebab kegagalan", d: "Menyerah dan berhenti meneliti" }, correctAnswer: "c", explanation: "Sikap jujur dan objektif adalah kunci. Ilmuwan sejati akan melaporkan kegagalan." }];
+            renderPostTestForm('postTest-apa-itu-sains', questions);
+            handlePostTest('postTest-apa-itu-sains', questions);
+            handleMiniQuiz('observasi', 'Tepat! Mencium adalah bagian dari mengamati (observasi) menggunakan indra penciuman.', 'Kurang tepat. Coba pikirkan lagi, indra apa yang ia gunakan?');
+        } else if (subBabId === 'cabang-sains') {
+            const questions = [{ question: "Ilmu yang mempelajari tentang gempa bumi dan pergerakan lempeng tektonik adalah...", options: { a: "Astronomi", b: "Geologi", c: "Ekologi", d: "Botani" }, correctAnswer: "b", explanation: "Geologi adalah ilmu yang mempelajari bumi, termasuk struktur, komposisi, dan proses alamnya seperti gempa bumi." }, { question: "Seorang ahli sedang meneliti cara membuat plastik yang lebih ramah lingkungan. Ia bekerja dalam bidang ilmu...", options: { a: "Fisika", b: "Biologi", c: "Kimia", d: "Astronomi" }, correctAnswer: "c", explanation: "Kimia adalah ilmu yang mempelajari tentang materi, sifat, dan perubahannya, termasuk pembuatan material baru seperti plastik." }];
+            renderPostTestForm('postTest-cabang-sains', questions);
+            handlePostTest('postTest-cabang-sains', questions);
+            handleMiniQuiz('geofisika', 'Tepat! Geofisika mempelajari bumi dengan pendekatan fisika, termasuk fenomena seperti gunung berapi.', 'Bukan itu. Coba pikirkan ilmu yang menggabungkan studi tentang Bumi dan prinsip-prinsip Fisika.');
+        } else if (subBabId === 'lab-ipa') {
+            const questions = [{ question: "Alat pelindung diri (APD) yang wajib digunakan untuk melindungi mata dari percikan bahan kimia adalah...", options: { a: "Jas lab", b: "Masker", c: "Sarung tangan", d: "Kacamata pengaman" }, correctAnswer: "d", explanation: "Kacamata pengaman (goggles) dirancang khusus untuk melindungi mata dari segala arah." }, { question: "Simbol api pada botol bahan kimia berarti bahan tersebut...", options: { a: "Beracun", b: "Mudah meledak", c: "Mudah terbakar", d: "Korosif" }, correctAnswer: "c", explanation: "Simbol api (flammable) menandakan bahwa bahan tersebut harus dijauhkan dari sumber api atau panas karena mudah terbakar." }];
+            renderPostTestForm('postTest-lab-ipa', questions);
+            handlePostTest('postTest-lab-ipa', questions);
+            // Drag and Drop Game Logic
+            const alatContainer = document.getElementById('alat-container');
+            const fungsiContainer = document.getElementById('fungsi-container');
+            const gameFeedback = document.getElementById('gameFeedback');
+            const alatData = [
+                { id: 'gelas-ukur', nama: 'Gelas Ukur', fungsi: 'Mengukur volume cairan dengan tepat' },
+                { id: 'mikroskop', nama: 'Mikroskop', fungsi: 'Melihat benda yang sangat kecil' },
+                { id: 'termometer', nama: 'Termometer', fungsi: 'Mengukur suhu' }
+            ];
+            // Shuffle alat
+            alatData.sort(() => Math.random() - 0.5);
+            alatContainer.innerHTML = alatData.map(a => `<div id="${a.id}" draggable="true" class="draggable bg-white p-2 rounded shadow border cursor-move">${a.nama}</div>`).join('');
+            fungsiContainer.innerHTML = alatData.sort(() => Math.random() - 0.5).map(a => `<div class="drop-zone p-4 rounded-lg text-center" data-fungsi="${a.fungsi}">${a.fungsi}</div>`).join('');
+            
+            document.querySelectorAll('.draggable').forEach(item => {
+                item.addEventListener('dragstart', e => {
+                    e.dataTransfer.setData('text/plain', e.target.id);
+                    e.target.classList.add('opacity-50');
+                });
+                item.addEventListener('dragend', e => e.target.classList.remove('opacity-50'));
+            });
+
+            document.querySelectorAll('.drop-zone').forEach(zone => {
+                zone.addEventListener('dragover', e => {
+                    e.preventDefault();
+                    zone.classList.add('hovered');
+                });
+                zone.addEventListener('dragleave', e => zone.classList.remove('hovered'));
+                zone.addEventListener('drop', e => {
+                    e.preventDefault();
+                    zone.classList.remove('hovered');
+                    const id = e.dataTransfer.getData('text');
+                    const draggableElement = document.getElementById(id);
+                    const fungsiAlat = alatData.find(a => a.id === id).fungsi;
+                    if (zone.dataset.fungsi === fungsiAlat) {
+                        zone.innerHTML = '';
+                        zone.appendChild(draggableElement);
+                        draggableElement.classList.remove('draggable');
+                        draggableElement.style.cursor = 'default';
+                        gameFeedback.textContent = 'Benar!';
+                        gameFeedback.className = 'mt-4 text-center font-bold quiz-correct';
+                    } else {
+                        gameFeedback.textContent = 'Salah! Coba lagi.';
+                        gameFeedback.className = 'mt-4 text-center font-bold quiz-incorrect';
+                    }
+                    setTimeout(() => gameFeedback.textContent = '', 2000);
+                });
+            });
+        } else if (subBabId === 'metode-ilmiah') {
+            const questions = [{ question: "Dugaan sementara yang dibuat untuk menjawab rumusan masalah disebut...", options: { a: "Kesimpulan", b: "Teori", c: "Observasi", d: "Hipotesis" }, correctAnswer: "d", explanation: "Hipotesis adalah dugaan cerdas yang kebenarannya perlu diuji melalui eksperimen." }, { question: "Dalam eksperimen, faktor yang sengaja dijaga tetap sama agar tidak memengaruhi hasil adalah...", options: { a: "Variabel bebas", b: "Variabel terikat", c: "Variabel kontrol", d: "Variabel acak" }, correctAnswer: "c", explanation: "Variabel kontrol memastikan bahwa perubahan pada variabel terikat hanya disebabkan oleh variabel bebas." }];
+            renderPostTestForm('postTest-metode-ilmiah', questions);
+            handlePostTest('postTest-metode-ilmiah', questions);
+            handleMiniQuiz('bebas', 'Tepat! Jumlah air adalah faktor yang sengaja kamu ubah-ubah untuk melihat pengaruhnya.', 'Kurang tepat. Variabel yang diubah-ubah oleh peneliti disebut variabel bebas.');
+        } else if (subBabId === 'pengukuran') {
+            const questions = [{ question: "Di antara besaran berikut, yang termasuk besaran pokok menurut SI adalah...", options: { a: "Luas", b: "Kecepatan", c: "Massa", d: "Volume" }, correctAnswer: "c", explanation: "Massa (kilogram) adalah salah satu dari tujuh besaran pokok. Luas, kecepatan, dan volume adalah besaran turunan." }, { question: "Alat yang paling tepat untuk mengukur diameter dalam sebuah cincin adalah...", options: { a: "Penggaris", b: "Jangka sorong", c: "Meteran", d: "Timbangan" }, correctAnswer: "b", explanation: "Jangka sorong memiliki ketelitian yang sangat tinggi (hingga 0,1 mm atau 0,05 mm) dan cocok untuk mengukur diameter benda-benda kecil." }];
+            renderPostTestForm('postTest-pengukuran', questions);
+            handlePostTest('postTest-pengukuran', questions);
+            handleMiniQuiz('25', 'Tepat sekali! Volume batu adalah selisih volume akhir dan awal (95 ml - 70 ml = 25 ml).', 'Kurang tepat. Volume benda tak beraturan adalah selisih volume air setelah dan sebelum benda dimasukkan.');
+        }
+    }
+
+    // --- INITIALIZATION ---
+    function init() {
+        // Mobile hamburger menu
+        hamburgerBtn.addEventListener('click', () => {
+            sidebar.classList.remove('-translate-x-full');
+            overlay.classList.remove('hidden');
+        });
+        overlay.addEventListener('click', () => {
+            sidebar.classList.add('-translate-x-full');
+            overlay.classList.add('hidden');
+        });
+
+        // Desktop sidebar toggle
+        desktopToggleBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('-translate-x-full');
+            
+            if (sidebar.classList.contains('-translate-x-full')) {
+                // Sidebar is hidden
+                mainContentWrapper.classList.remove('md:ml-64');
+                desktopToggleBtn.classList.remove('left-68'); // 17rem = 272px
+                desktopToggleBtn.classList.add('left-4'); 
+                desktopToggleIcon.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 5h7"></path>`;
+            } else {
+                // Sidebar is visible
+                mainContentWrapper.classList.add('md:ml-64');
+                desktopToggleBtn.classList.remove('left-4');
+                desktopToggleBtn.classList.add('left-68');
+                desktopToggleIcon.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>`;
+            }
+        });
+
+        navigateTo('homepage');
+    }
+
+    init();
+    </script>
+</body>
+</html>
